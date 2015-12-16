@@ -1,0 +1,948 @@
+/* CSS Document */
+html , body, /* div */, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, /*p */, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+/* table, */ caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;	
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	font-family: Arial, sans-serif;
+/*	vertical-align:top;			*/
+/*	vertical-align: baseline;	*/
+	}
+/* remember to define focus styles! */
+:focus {outline: 0;}
+
+body {
+/*	line-height: 1;		*/
+background-color: #FFF;
+	}
+	
+ol, ul {list-style: none;}
+
+caption, th, td {
+	text-align: left;	
+	font-weight: normal;}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+	}
+blockquote, q {
+	quotes: "" "";
+	}
+
+a {
+	text-decoration: underline;
+	color:#FFF;
+	}
+	
+a.link, a.active, a.hover {
+	text-decoration:underline;
+	color:#022a62;
+}
+
+/*
+th {
+	background: #FF8000;
+	border-right:solid 1px #b7b7a3;
+	color:#fff;
+	font-size:11px;
+	font-weight:bold;
+	}
+*/	
+
+/*
+p {
+	display: inline;
+	margin: 0;
+	font-family: 'Oswald', sans-serif;
+}
+*/
+
+.cth {
+	background-image:url(/directorioamis/graphics/bdTh.gif);
+	background-repeat:repeat-x;
+	border-right:solid 1px #8a99c3;
+	color:#FFF;
+	font-size:11px;
+	font-weight:bold;
+	line-height:23px;
+	height:23px;
+}
+
+/*
+td {
+	font-family: Arial, sans-serif;
+	font-size: 11px;
+	line-height: 15px;
+	color: #2a2a2a;
+}
+*/
+
+	/* ** ESTILOS PARA EL HEADER Y MENU ** */
+.wrap {
+	margin:0 auto;
+	padding:0;
+	background:#FFF;
+}
+	
+.headerPagina	{
+	height:130px;
+	background-color: #FF8000;
+}
+
+.cerrar{
+	width: 100px;
+	height: 50px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin-top:35px;
+}
+	/* ** FIN HEADER Y MENU ** */
+	
+	
+	/* ** ESTILOS PARA EL FOOTER ** */
+.footerPagina	{
+	display:block;
+	background:url(/directorioamis/graphics/bgFooter.gif);
+	height:26px;
+	color:#06f3f6;
+	font-size:11px;
+	text-align:right;
+	margin-top:115px;
+	padding:15px 25px 0 0;
+	}
+
+	/* ** FIN FOOTER ** */
+
+.content{
+	background:#f7f7f7;
+	padding:15px 50px 0 50px;
+	min-height:400px;
+}
+
+.titulos {
+	font-size:16px;
+	font-weight:bold;
+	padding:5px 0 20px 0;
+	text-align:left;
+}
+
+.subTitulos	{
+	font-size:14px; 
+	font-weight:bold;
+	color:#164199;
+	line-height:35px;
+}	
+.subSubTitulos	{
+	font-size:12px; 
+	font-weight:bold;
+	color:#164199;
+	line-height:25px;
+}	
+
+.subTxt	{font-size:9px;}
+
+/* colores	*/
+.azul	{color:#022a62}
+
+         .boton{
+         	width: 100px;
+         	background-color: #FF4000;
+        	color: #FFF;
+        	display: inline;
+        	float: left;
+        	border: none;
+        	font: bold 11px Arial, sans-serif;
+        	height: 30px;
+        	margin:5px 10px 20px 40px;
+        	padding-right: 18px; 		/* padding que desliza las imagenes */
+        	text-decoration: none;
+         }
+
+.buttons	{					/* solo funciona para Mac */
+/*	width:800px;	*/
+	margin-top:5px;
+}	
+a.button	{
+	background: transparent url(/directorioamis/graphics/bg_button_a.gif) no-repeat scroll top right;
+	color: #000;
+	display: block;
+	float: left;
+	font: bold 11px Arial, sans-serif;
+	height: 24px;
+	margin:5px 10px 20px 40px;
+	padding-right: 18px; 		/* padding que desliza las imagenes */
+	text-decoration: none;
+}
+a.button span {
+	background: transparent url(/directorioamis/graphics/bg_button_span.gif) no-repeat;
+	display: block;
+	line-height: 14px;
+	padding: 5px 0 5px 18px;
+	}
+a.button:active {
+	background-position: bottom right;
+	color: #FFF;
+	outline: none; 				/* esconde un outline in Firefox */
+	}
+a.button:active span {
+	background-position: bottom left;
+	padding: 5px 0 5px 18px;	/* sin efecto de sumir el boton, siempre debe dar la misma altura */
+	}
+
+
+.txtBox {
+	margin:5px;	
+ 	background-color: #f2f2f2;
+	border-top:solid 1px #677ba9;
+	border-right:solid 1px #00235c;	
+	border-bottom:solid 1px #00235c;	
+	border-left:solid 1px #677ba9;
+	padding:2px;
+ 	font-size:11px;
+ 	color:#00235c;
+/* 	height:17px;	usar la altura, unicamente sino se utilizaran cajas de texto "multilineas"	*/ 
+}
+
+
+/*	login	*/
+#headerLogin	{
+	background-color: #FFF;
+	height:151px;
+	}
+#headerLogin p{
+	font-size: 80px;
+	color: #000;
+	padding-left: 20px;
+}
+	
+#login				{
+	background-color: #FF8000;
+	width:761px;
+	height:306px;
+	margin:0 auto;
+	display:block;
+	padding-bottom:50px;
+	text-align: center;
+	
+	}
+	
+#loginForm			{width: 500px; height: 300px; margin: 0 auto; padding-top: 50px;}
+.loginFormInput		{padding:2px 0 0 10px; width:155px; height:18px; background:#f3f4f8; border:solid 1px #f3f4f8;}
+
+.loginSubtitulo{
+	display: block;
+	color: #FFF;
+	font-size: 30px;
+	padding-top: 10px;
+}
+.loginLabel{
+	color: #FFF;
+	width: 200px;
+}
+
+
+/*	contenido general	*/
+.contenido {
+	background-image:url(/directorioamis/graphics/sombreadoHead.gif);
+	background-repeat:repeat-x;
+	background-color:#FFF;
+	padding:11px 0 11px 12px;
+	border-left:1px solid #e3c8d1;
+	text-align:left;
+/*	display:table;			*/	
+/*	position:relative;		*/
+/*	float: left;			*/
+/*	background: #000000;	*/
+}
+	
+.contenido2 {
+	/*border:solid 1px #666666;
+	padding:21px 15px 21px 34px;
+	background-color:#f0f0f0;*/}
+	
+.lower	{
+	background-image:url(/directorioamis/graphics/lower.gif); 
+	background-repeat:no-repeat;
+	background-color:#6f6f6f;
+	height:8px;
+}
+
+.headerGris	{
+	color:#002d62;
+	font-size:16px;
+	font-weight:bold;
+	padding:8px 0 10px 0;
+}
+	
+.hdGris		{width:8px; vertical-align:top; background-color:#6f6f6f;}
+
+.subHeaderAzul	{
+	background:url(../img/bgResultadoBusqueda.png) no-repeat;
+	width:995px;
+	height:40px;
+	margin:0 auto;
+	padding-top:3px;
+	
+/*	background-color: #2E2E2E;
+	height:26px;
+	padding-top:4px;
+	padding-left:20px;
+	color:#FFF;
+	font-size:14px;
+	font-weight:bold;	*/
+}
+
+.subHeaderPersonas	{
+	background:url(../img/bgResultadoPersonas.png) no-repeat;
+	width:995px;
+	height:40px;
+	margin:0 auto;
+	padding-top:3px;
+	margin-top:10px;}
+
+.subHeaderCompanias	{
+	background:url(../img/bgResultadoCompanias.png) no-repeat;
+	width:995px;
+	height:40px;
+	margin:0 auto;
+	padding-top:3px;}
+
+/*	tablas de formularios	*/
+.formularios 			{padding-top:10px; width:99%;}
+.formularios td			{vertical-align:top;}
+.formularios input		{margin:-1px 0 8px 0;}
+.formularios select		{margin:0px 0 8px 0;}
+
+.formulariosLabel 	{font:bold 12px Arial, sans-serif; color: #7b7b7b;}
+
+.alignRight		{text-align:right; padding-right:10px; padding-top:2px;}
+
+
+	/* ** tablas de formularios	** */
+/*.formularios 			{border: 3px;}
+.formulariosLabel 		{font:bold 12px Arial, sans-serif; float: right; text-align:right; color: #7b7b7b;}
+.formulariosInput		{margin:10px 0 10px 0;}
+.formulariosSelect		{margin:10px 0 10px 0;}
+.formularios p br 		{clear: left;}*/
+	/* ** fin tablas de formularios	** */
+
+
+.tableTop	{
+	/*background-image:url(/directorioamis/graphics/tableTopLeft.gif);
+	background-repeat:no-repeat;
+	width:100%; 
+	height:5px;
+	text-align:right;
+	margin-top:15px;
+	margin:0 auto;
+	padding-bottom:15px;
+	display:block;
+	display:table;*/
+	}
+	
+.tablas	{
+	width:100%;
+	text-align:center;
+	border-left:solid 1px #999;
+	margin-left:5px;
+	margin-top:0px;
+	*margin-top:-10px;
+}
+
+.tablas2 {
+	text-align:center;
+	border-left:solid 1px #999;
+	margin-top:0px;
+	*margin-top:-10px;
+}
+	
+.subHeaderTable	{padding:7px 0 7px 0; border-top:solid 1px #b7b7a3; border-right:solid 1px #b7b7a3; color:#164199; font-size:11px;}	
+	
+.tableNon	{background:#FFF; border-right:solid 1px #999; border-bottom:solid 1px #999; padding:3px;}
+.tablePar	{background:#e9eefd; border-right:solid 1px #999; border-bottom:solid 1px #999; padding:3px;}
+.tableGris	{background:#E5E5E5; border-right:solid 1px #999; border-bottom:solid 1px #999; padding:3px;}
+
+.tableNon2	{background:#FFF; font-size: 11px; border-right:solid 1px #b7b7a3; border-bottom:solid 1px #b7b7a3; padding:3px;}
+.tablePar2	{background:#e2e6f0; font-size: 11px; border-right:solid 1px #b7b7a3; border-bottom:solid 1px #b7b7a3; padding:3px;}
+
+.tableBottom	{
+	/*background-image:url(/directorioamis/graphics/tableBottomLeft.gif);	
+	width:100%; 
+	height:2px;
+	background:#e9661c;
+	border-bottom:solid 1px #c25517;
+	margin-bottom:5px;*/}
+
+
+
+/* COMPLEMENTOS */
+
+.labelAyuda 	{font:bold 14px Arial, sans-serif; text-align:center; color: #7b7b7b;}
+
+/* Estilo para el listado de informacion TD */
+.listadotd {
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	line-height: 15px;
+	color: #2a2a2a;
+}
+
+.tdVerticalAlignCenter{
+	margin: 0;
+	padding: 0;	
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 12px;
+	font-family: inherit;
+	vertical-align:middle;	
+}
+/* header; text properties for states: normal, hover, click */
+.TM7i0 {
+	font-family: Arial, Helvetica, sans-serif;;
+	color: #eee;
+	font-size: 11px;
+	font-weight: bold;
+	font-style: normal;
+	text-decoration: none;
+}
+
+/* header; box properties for states: normal */
+.TM7o0 {
+	background:url(file:///C|/wamp/www/imagenes/bdTh.gif);
+/*	border: 1px solid #999999;		*/
+	border-left: solid 1px #8a8b8a;
+	border-bottom:solid 1px #042e61;
+	border-right: solid 1px #7c7d7c;
+	padding: 2px;
+	text-align: center;
+	vertical-align: middle;
+	horizontal-align: middle;
+	text-decoration: none;
+}
+
+/* header; box properties for states: hover, click */
+.TM7o1 {
+	background:url(file:///C|/wamp/www/imagenes/bdThOn.gif);
+	border-left: solid 1px #8a8b8a;
+	border-bottom:solid 1px #ffffff;
+	border-right: solid 1px #7c7d7c;
+	padding: 2px;
+	color: #ffffff;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+}
+
+/* menú; text properties for states: normal */
+.TM8i0 {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #0a1d40;
+	font-size: 11px;
+	font-weight: bold;
+	font-style: normal;
+	text-decoration: none;
+}
+
+/* menú; box properties for states: normal */
+/* submenu fijo*/
+.TM8o0 {
+	background:url(file:///C|/wamp/www/imagenes/bulletMenu.gif) no-repeat;
+	border: 1px solid #67c3d5;
+	padding: 3px 3px 3px 15px;
+	text-align: left;
+	vertical-align: middle;
+	text-decoration: none;
+	/*background-image: url(../img/menufijo.gif);*/
+	filter:alpha(opacity=90);
+	-moz-opacity: 0.90;
+	opacity: 0.90;
+}
+
+/* menú; text properties for states: hover, click */
+.TM8i1 {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #0a1d40;
+	font-size: 11px;
+	font-weight: bold;
+	font-style: normal;
+	text-decoration: none;
+}
+
+/* menú; box properties for states: hover, click */
+.TM8o1 {
+	background:#82cacf;
+	background:url(file:///C|/wamp/www/imagenes/bulletMenuOn.gif) no-repeat;
+	border: 1px solid #67c3d5;
+	padding: 3px 3px 3px 15px;
+	text-align: left;
+	vertical-align: middle;
+	text-decoration: none;
+}
+
+.tablaInformes 			{
+	padding-top:10px; width:99%; 
+	text-decoration:none; 
+	border: 1px solid #7c7d7c;
+	padding: 3px 3px 3px 1px;
+	color: #fff;
+}
+
+.tablaDetalle 			{
+	padding-top:10px; width:99%; 
+	text-decoration:none; 
+	/*border: 1px solid #7c7d7c;*/
+	border: 1px solid black;
+	padding: 2px 2px 2px 0px;
+	color: #fff;
+}
+
+.tablaDetalle th			{
+    vertical-align:top;
+    text-align:right; 
+    border-right:none;
+    background:none;
+    border-bottom: 0px;
+    background-color: #fff;
+	color:#164199;
+}
+
+.tablaDetalle td			{
+    vertical-align:top;
+    text-align:center;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-spacing: 0px;
+}
+
+.tablaDetalle .sinColor { 
+	line-height: 5px;
+    background-color: white; 
+}
+
+.tablaDetalle .sinColor2 { 
+	line-height: 5px;
+    background-color: white; 
+    /*border-bottom: 1px solid #9a9b9a;*/
+    border-bottom: 1px solid #000;
+}
+
+.tablaEmision 			{
+	padding-top:10px; width:99%; 
+	text-decoration:none; 
+	border: 1px solid #7c7d7c;
+	padding: 3px 3px 3px 1px;
+	color: #fff;
+}
+
+.tablaEmision th			{
+    vertical-align:top;
+    text-align:right; 
+    border-right:none;
+    background:none;
+    border-bottom: 1px solid #9a9b9a;
+    background-color: #fff;
+	color:#164199;
+}
+
+.tablaEmision td			{
+    vertical-align:top;
+    text-align:center;
+    background-color: #fff;
+}
+
+.tablaEmision .sinColor { 
+	line-height: 5px;
+    background-color: white; 
+}
+
+
+.tablaSiniestro 			{
+	padding-top:10px; width:99%; 
+	text-decoration:none; 
+	border: 1px solid #7c7d7c;
+	padding: 3px 3px 3px 1px;
+	color: #fff;
+}
+
+.tablaSiniestro th			{
+    vertical-align:top;
+    text-align:right; 
+    border-right:none;
+    background:none;
+    border-bottom: 1px solid #9a9b9a;
+    background-color: #fff;
+	color:#164199;
+}
+
+.tablaSiniestro td			{
+    vertical-align:top;
+    text-align:center;
+    background-color: #fff;
+}
+
+.tablaSiniestro .sinColor { 
+	line-height: 5px;
+    background-color: white; 
+}
+
+
+.tablaOcra 			{
+	padding-top:10px; width:99%; 
+	text-decoration:none; 
+	border: 1px solid #7c7d7c;
+	padding: 3px 3px 3px 1px;
+	color: #fff;
+}
+
+.tablaOcra th			{
+    vertical-align:top;
+    text-align:right; 
+    border-right:none;
+    background:none;
+    border-bottom: 1px solid #9a9b9a;
+    background-color: #fff;
+	color:#164199;
+}
+
+.tablaOcra td			{
+    vertical-align:top;
+    text-align:center;
+    background-color: #fff;
+}
+
+.tablaOcra .sinColor { 
+	line-height: 5px;
+    background-color: white; 
+}
+
+.tablaPt 			{
+	padding-top:10px; width:99%; 
+	text-decoration:none; 
+	border: 1px solid #7c7d7c;
+	padding: 3px 3px 3px 1px;
+	color: #fff;
+}
+
+.tablaPt th			{
+    vertical-align:top;
+    text-align:right; 
+    border-right:none;
+    background:none;
+    border-bottom: 1px solid #9a9b9a;
+    background-color: #fff;
+	color:#164199;
+}
+
+.tablaPt td			{
+    vertical-align:top;
+    text-align:center;
+    background-color: #fff;
+}
+
+.tablaPt .sinColor { 
+	line-height: 5px;
+    background-color: white; 
+}
+
+.tablaSipac 			{
+	padding-top:10px; width:99%; 
+	text-decoration:none; 
+	border: 1px solid #7c7d7c;
+	padding: 3px 3px 3px 1px;
+	color: #fff;
+}
+
+.tablaSipac th			{
+    vertical-align:top;
+    text-align:right; 
+    border-right:none;
+    background:none;
+    border-bottom: 1px solid #9a9b9a;
+    background-color: #fff;
+	color:#164199;
+}
+
+.tablaSipac td			{
+    vertical-align:top;
+    text-align:center;
+    background-color: #fff;
+}
+
+.tablaSipac .sinColor { 
+	line-height: 5px;
+    background-color: white; 
+}
+
+.tablaCii 			{
+	padding-top:10px; width:99%; 
+	text-decoration:none; 
+	border: 1px solid #7c7d7c;
+	padding: 3px 3px 3px 1px;
+	color: #fff;
+}
+
+.tablaCii th			{
+    vertical-align:top;
+    text-align:right; 
+    border-bottom: 1px solid #9a9b9a;
+    border-right:none;
+    background:none;
+    background-color: #fff;
+	color:#164199;
+}
+
+.tablaCii td			{
+    vertical-align:top;
+    text-align:center;
+    background-color: #fff;
+}
+
+.tablaCii .sinColor { 
+	line-height: 5px;
+    background-color: white; 
+}
+.bubbleInfo {
+    position: relative;
+}
+
+.popup {
+    position: absolute;
+    display: none; /* keeps the popup hidden if no JS available */
+}
+
+/* Loading box of width=height=100px with a spinner placed at the center */
+#loading {
+    width:100px;
+    height: 100px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background:url(/directorioamis/graphics/spinner3-black.gif) no-repeat center #fff;
+    text-align:center;
+    padding:10px;
+    font:normal 16px Tahoma, Geneva, sans-serif;
+    border:1px solid #666;
+    margin-left: -50px;
+    margin-top: -50px;
+    z-index:2;
+    overflow: auto;
+}
+.linkTabla{
+	color: blue;
+}
+
+/************************************
+Nuevos estilos
+************************************/
+
+.tablaInterna {}
+.tablaInterna th {}
+
+.error {
+	color:#F00;
+	font-size:.8em;
+	padding-left:200px;
+	}
+	
+#tablaPersonas	{
+	width:96.3%;
+	border:1px solid #000;
+	margin-bottom:15px;}
+#tablaPersonas a{
+	color:#666;
+	text-decoration:underline;}
+
+#tablaPersonas th {	
+	background: #ee9046 url("../resources/DataTables-1.10.3/media/images/sort_both.png") no-repeat center right;
+	height:30px;
+	border-right:1px solid #ae6a33;
+	border-left:1px solid #ffa660;
+	text-align:center;
+	color:#FFF;
+	font-weight:bold;
+	line-height:1em;}
+
+#tablaPersonas td {
+	background:#fff;
+	color:#505050;
+	font-size:.9em;
+	height:30px;
+	border:1px solid #bcbcbd;
+	border-top:none;
+	border-left:none;
+	padding:2px 7px;}
+	
+.titleResultadosBusqueda{
+	font-size: 20px;
+	font-weight: bold;
+	color:#fff;
+	margin:0;
+	text-transform: uppercase;
+	margin-left: 40px;
+}
+
+#tablaOficina, #tablaHistorico, #tablaCompanias {
+	width:100%;
+	border:1px solid #000;
+	margin-bottom:15px;}
+
+#tablaOficina a, #tablaHistorico a, #tablaCompanias a{
+	color:#666;
+	text-decoration:underline;}
+
+#tablaOficina th, #tablaHistorico th, #tablaCompanias th {
+	background:#4a92a6 url("../resources/DataTables-1.10.3/media/images/sort_both.png") no-repeat center right;
+	height:30px;
+	border-right:1px solid #428294;
+	border-left:1px solid #579fb1;
+	text-align:center;
+	color:#FFF;
+	font-weight:bold;
+	line-height:1em;}
+
+#tablaOficina td, #tablaHistorico td, #tablaCompanias td {
+	background:#fff;
+	color:#505050;
+	font-size:.9em;
+	height:30px;
+	border:1px solid #bcbcbd;
+	border-top:none;
+	border-left:none;
+	padding:2px 7px;}
+	
+#resultados {
+	width:96.3%;
+	border:1px solid #000;
+	background:#757677;
+	color:#FFF;
+	font-size:.8em;
+	margin:0 auto;
+	margin-bottom:5px;
+	}	
+	
+#resultados img {
+	padding:10px 8px;
+	float:right;}
+	
+#resultados td {
+	vertical-align:middle;
+	padding-left:10px;}
+	
+#resultados	select{
+	background: #FFF url(../img/arrowSelect.png) 98% center;
+	background-repeat: no-repeat;
+	height: 23px;
+	padding-right: 25px;
+	padding-left: 5px;
+	margin:0;
+	outline: none;
+	border:1px solid #000;
+	border-radius: 5px;
+	-webkit-appearance:none;
+	}
+	
+/*Checkboxes*/
+
+table#tablaPersonas td input[type="checkbox"]{
+	display: none;
+	margin: 10px;
+}
+table#tablaPersonas td input[type="checkbox"] + label{
+	background: url(../img/bg_checkbox_notChckd.png) no-repeat;
+	display:inline-block;
+    margin:0px;
+    padding: 4px 13px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+table#tablaPersonas td input[type="checkbox"]:checked + label{
+	background: url(../img/bg_checkbox_chckd.png) no-repeat;
+}
+table#tablaPersonas td label {
+	color:#FFF;}
+
+.btnEditar{
+	background: url(../img/bg_btnEditar.png) no-repeat;
+	width: 127px;
+	height: 52px;
+	overflow: hidden;
+	border:none;
+	outline: none;
+	cursor: pointer;
+	margin-top: 10px;
+	text-indent: 200%;
+	white-space: nowrap;
+	overflow: hidden
+}
+.btnEliminar{
+	background: url(../img/bg_btnEliminar.png) no-repeat;
+	width: 127px;
+	height: 52px;
+	overflow: hidden;
+	border:none;
+	outline: none;
+	cursor: pointer;
+	margin-top: 10px;
+	text-indent: 200%;
+	white-space: nowrap;
+	overflow: hidden
+}	
+.btnAgregar{
+	background: url(../img/bg_btnAgregar.png) no-repeat;
+	width: 127px;
+	height: 52px;
+	overflow: hidden;
+	border:none;
+	outline: none;
+	cursor: pointer;
+	margin-top: 10px;
+	text-indent: 200%;
+	white-space: nowrap;
+	overflow: hidden
+}	
+.btnRegresar{
+	background: url(../img/btnRegresar.png) no-repeat;
+	color: transparent;	
+	width: 110px;
+	height: 19px;
+	overflow: hidden;
+	border:none;
+	outline: none;
+	cursor: pointer;
+	float: right;
+	margin-top: 6px;
+	margin-right: 10px;	
+}
+.btnRegresarPopUp{
+	background: url(../img/btnRegresar.png) no-repeat;
+	color: transparent;
+	width: 110px;
+	height: 19px;
+	overflow: hidden;
+	border:none;
+	outline: none;
+	cursor: pointer;
+	float: right;
+	margin-top: 21px;
+	margin-left: 10px;	
+}
+.btnHistorico, .btnOficina {
+	float: right;
+	margin-right: 45px;
+	margin-top: 30px;
+	}

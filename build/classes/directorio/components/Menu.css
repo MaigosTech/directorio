@@ -1,0 +1,33 @@
+/*
+ * Menu
+ */
+
+/* menu is placed after the main content, so bring it back to top */
+#menu-container-menu					{ display: inline; margin: 0; padding: 0 15px; width:670px; height: 30; }
+
+/* first level */
+#menu-container-menu li					{ float: left; margin-left: 15px; padding: 0; background: none; list-style:none}
+#menu-container-menu li a				{ display: block; float: left; height: 29px; line-height: 29px; padding: 0 10px;  text-decoration: none; font-weight: bold; }
+#menu-container-menu li a.submenu		{ height: 20px; }
+#menu-container-menu li:hover,
+#menu-container-menu li.menu_open		{ cursor: pointer;
+										  /*background: url("/directorioamis/graphics/menu/menu_tab_bg_right.png") no-repeat right top;*/
+										  background-color: #A4A4A4;
+ }
+#menu-container-menu li a:hover			{ left top; /*color: #3C545B;*/  }
+#menu-container-menu li a.menu_open		{ left top; }
+/*#menu-container-menu ul ul a.menu_open		{  /*color: #3C545B; color: #66746C; } */
+#menu-container-menu li a:visited:hover,
+#menu-container-menu li a:link:hover	{ text-decoration: underline; cursor: pointer; /*color: #E32;*/ color: #000; }
+
+/* second level */
+#menu-container-menu ul					{ visibility: hidden; z-index: 100; margin: 0; padding: 0 5px 5px 0px; position: absolute; top: 30px; }
+#menu-container-menu ul li				{ float: none; margin-left: 0; border-top: 1px solid #E1E5E5; list-style: none; background: #66746C;}
+#menu-container-menu ul li:first-child	{ border-top: none; }
+#menu-container-menu ul li a			{ float: none; width: 180px; height: auto; line-height: 1.2em;  font-weight: normal; /*color: #3C545B;*/ color: #FFF; }
+#menu-container-menu ul li a:hover		{ background: #A4A4A4; color:#FFF; }
+#menu-container-menu ul li.menu_open	{ background: none; }
+
+#menu-container-menu ul ul				{ visibility: hidden; z-index: 100; margin: 0; padding: 0 5px 5px 5px; position: absolute; top: 30px; background: transparent no-repeat left bottom; }
+
+.headerMenu { font-size: 60px; }

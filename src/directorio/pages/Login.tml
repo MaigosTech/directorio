@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html 
+  xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+  xmlns:p="tapestry:parameter">
+<head>
+  <meta charset="UTF-8" />
+  <title>Directorio AMIS ::login::</title>
+  <link rel="stylesheet" href="/directorioamis/css/main.css"/>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'/>
+  <script src="/directorioamis/js/validacionLogin.js"></script>    
+</head>
+<body>
+  <t:if test="error">
+      <center><font color="red">Usuario o contrase&ntilde;a inv&aacute;lidos</font><br/><br/></center>
+  </t:if>
+  <t:if test="errorLoginDuplicado">
+      <center><font color="red">Su usuario ya tiene una sesi&oacute;n activa en el sistema.</font><br/><br/></center>
+  </t:if>
+  <div id="wrapLogin">
+    <div id="logoLogin"></div>
+    <div id="innerLogin">
+      <h1 class="shadow cabeza1">Directorio</h1>
+      <h4 class="shadow cabeza2">Autentificación de usuario</h4>
+      <t:form method="post" t:id="loginform" autocomplete="off">
+        <div id="input_user">
+          <t:textfield t:value="usuario" onKeyUp="javascript:this.value=this.value.toUpperCase();" t:validate="required,minlength=3" t:id="usuario" autocomplete="off" />
+        </div>
+        <div id="input_pass">
+          <t:passwordfield t:value="password" t:validate="required,minlength=3" t:id="password" onChange="javascript:this.value=this.value.toUpperCase();" autocomplete="off"/>
+        </div>
+        <t:submit id="btn_accesar" style="text-indent: 200%;white-space: nowrap;overflow: hidden" />
+      </t:form> 
+    </div>
+  </div>  
+  <div class="footerPagina">Copyright 2014</div> 
+</body>
+</html>

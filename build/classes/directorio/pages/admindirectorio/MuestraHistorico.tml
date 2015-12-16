@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<span t:type="layout" title="Operaciones Administrativas CODIS"
+    xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+    xmlns:p="tapestry:parameter" >
+    <div class="subHeaderAzul"><p class="titleForm2 shadow">Detalle Hist&oacute;rico</p></div>
+    <t:if test="${muestraDetalle('persona')}">
+    <div id="detallePersona">
+      <t:form t:id="formDatosPersona" class="form" >
+            <p class="titleForm shadow">Personas</p>
+            <t:submit 
+                t:id="regresa"
+                class="btnRegresar"
+                value="Regresar"
+                alt="Regresa" 
+                border="0"/>
+            <table class="tablaInterna">
+                <t:if test="errorTmp">
+                <tr>
+                    <td colspan="4" align="center">
+                        <p><font color="red">No se puede proceder a la modificaci&oacute;n.<br/>
+                            El sistema ha reportado el(los) siguiente(s) error(es):</font></p>
+                            <ul>
+                                <li>${errorTmp}</li>
+                            </ul>
+                    </td>
+                </tr>
+                </t:if>
+                <tr>
+                    <th>Compa&ntilde;ia</th>
+                    <td class="datosLlenados">
+                        ${getNombreCia(detallePersona.get('id_cia'))}
+                    </td>
+                    <th>Tel&eacute;fono Compa&ntilde;ia</th>
+                    <td class="datosLlenados">
+                        ${detallePersona.get('telefono_cia')}
+                    </td>
+                </tr>
+                <tr>
+                    <th>Tipo de Persona</th>
+                    <td class="datosLlenados">
+                        ${getDescripcionFromCatalogo(detallePersona.get('id_tipo_persona'), 'CAT_TIPO_PERSONA')}                                    
+                    </td> 
+                    <th>Tel&eacute;fono Directo</th>
+                    <td class="datosLlenados">
+                        ${detallePersona.get('telefono_directo')}
+                    </td>
+                </tr>
+                <tr>
+                    <th>Nivel de Persona</th>
+                    <td class="datosLlenados">
+                        <p t:type="Loop" t:source="getListaMapasNivel(detallePersona.get('id_historial'))" t:value="nivel">
+                          ${nivel.get('descripcion')}
+                        </p>
+                    </td>
+                    <th>Tel&eacute;fono Casa</th>
+                    <td class="datosLlenados">
+                        ${detallePersona.get('telefono_casa')}
+                    </td>
+                </tr>
+                <tr>
+                    <th>&Aacute;rea</th>
+                    <td class="datosLlenados">
+                        ${getDescripcionFromCatalogo(detallePersona.get('id_area'), 'CAT_AREA')}
+                    </td>
+                    <th>Tel&eacute;fono Celular</th>
+                    <td class="datosLlenados">
+                        ${detallePersona.get('cel')}
+                    </td>
+                </tr>
+                <tr>
+                    <th>T&iacute;tulo</th>
+                    <td class="datosLlenados">
+                        ${detallePersona.get('titulo')}
+                    </td>
+                    <th>Facebook</th>
+                    <td class="datosLlenados">
+                        ${detallePersona.get('facebook')}
+                    </td>
+                </tr>
+                <tr>
+                    <th>Nombre</th>
+                    <td class="datosLlenados">
+                        ${detallePersona.get('nombre')}                                 
+                    </td>
+                    <th>WhatsApp</th>
+                    <td class="datosLlenados">
+                        ${detallePersona.get('whatsapp')}
+                    </td>
+                </tr>
+                <tr>
+                    <th>Apellido Paterno</th>
+                    <td class="datosLlenados">
+                        ${detallePersona.get('paterno')}
+                    </td>
+                    <th>Twitter</th>
+                    <td class="datosLlenados">
+                        ${detallePersona.get('twitter')}
+                    </td>
+                </tr>
+                <tr>
+                    <th>Apellido Materno</th>
+                    <td class="datosLlenados">
+                        ${detallePersona.get('materno')}
+                    </td>
+                    <th>Email Empresa</th>
+                    <td class="datosLlenados">
+                        ${detallePersona.get('mail_empresa')}
+                    </td>
+                </tr>
+                <tr>
+                    <th>Puesto</th>
+                    <td class="datosLlenados">
+                        ${detallePersona.get('puesto')}
+                    </td>
+                    <th>Email Personal</th>
+                    <td class="datosLlenados">
+                        ${detallePersona.get('mail_personal')}
+                    </td>
+                </tr>
+                <tr>
+                    <th>Oficina</th>
+                    <td class="datosLlenados">
+                        Oficina
+                    </td>
+                    <th>Estado en el Directorio</th>
+                    <td class="datosLlenados">
+                        ${detallePersona.get('estatus')}
+                    </td>
+                </tr>
+                <tr>
+                    <th>Fecha Alta</th>
+                    <td class="datosLlenados">
+                        ${detallePersona.get('fecha_alta')}
+                    </td>
+                    <th>Fecha Modificaci&oacute;n</th>
+                    <td class="datosLlenados">
+                        ${detallePersona.get('fecha_mod')}
+                    </td>
+                </tr>                            
+                <tr>
+                    <th>Observaciones</th>
+                    <td class="datosLlenados">
+                        ${detallePersona.get('observaciones')}
+                    </td>
+                </tr>
+                <tr>                    
+                    <td>
+                      <t:submit 
+                              t:id="eliminaPersona"
+                              class="boton btnEliminar"
+                              value="Elimina Persona"
+                              alt="Elimina Persona" 
+                              border="0" />
+                    </td>                               
+                </tr>
+            </table>
+        </t:form>
+    </div>            
+    </t:if>
+    <t:if test="${muestraDetalle('cia')}">
+        <div id="detalleCia">
+        <t:form t:id="formDatosIniciales" class="form">
+          <p class="titleForm shadow">Compa&ntilde;&iacute;as</p>          
+          <t:submit 
+              t:id="regresaCia"
+              class="btnRegresar"
+              value="Regresar"
+              alt="Regresa" 
+              border="0"/>
+          <table id="tablaInterna">
+          <t:if test="errorTmp">
+            <tr>
+                <td colspan="4" align="center">
+                <p><font color="red">No se puede proceder a la modificaci&oacute;n.<br/>
+                  El sistema ha reportado el(los) siguiente(s) error(es):</font></p>
+                  <ul>
+                  <li>${errorTmp}</li>
+                  </ul>
+                  </td>
+              </tr>
+          </t:if>
+          <tr>
+            <th>
+              Raz&oacute;n Social     
+            </th>
+            <td class="datosLlenados">
+              ${detalleCia.get('razon_social')}
+            </td>
+            <th>
+              Certificado Aportaci&oacute;n Patrimonial
+            </th>
+            <td class="datosLlenados">
+              ${getSiNo(detalleCia.get('certificado_aportacion_patrimo'))}
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Nombre corto:
+            </th>
+            <td class="datosLlenados">
+              ${detalleCia.get('nombre_corto')}
+            </td>
+            <th>
+              Capital Origen
+            </th>
+            <td class="datosLlenados">
+              ${detalleCia.get('id_capital_origen')}
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Logo: 
+            </th>
+            <td>
+              <img src="${getLogoHistorico(detalleCia.get('id_historial'))}" alt="Banner" style="width:120px;height:100px;"/>
+           </td>
+           <th>
+              Grupo Financiero
+            </th>
+            <td class="datosLlenados">
+              ${detalleCia.get('grupo_financiero')}
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Fecha fundaci&oacute;n:       
+            </th>
+            <td class="datosLlenados">
+              ${detalleCia.get('fecha_fundacion')}
+            </td>
+            <th>
+              Tipo de Mercado
+            </th>
+            <td class="datosLlenados">
+              ${getSiNo(detalleCia.get('id_tipo_mercado'))}
+            </td>
+          </tr>
+          <tr>
+            <th>
+              P&aacute;gina web:      
+            </th>
+            <td class="datosLlenados">
+              ${detalleCia.get('pagina_web')}
+            </td>
+            <th>
+              Canal de Ventas
+            </th>
+            <td class="datosLlenados">
+              ${getDescripcionFromCatalogo(detalleCia.get('id_canal_ventas'), 'CAT_CANAL_VENTA')}              
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Afiliada AMIS
+            </th>
+            <td class="datosLlenados">
+              ${getSiNo(detalleCia.get('afiliada_amis'))}
+            </td>
+            <th>
+              Capital Social
+            </th>
+            <td class="datosLlenados">
+              ${getDescripcionFromCatalogo(detalleCia.get('id_capital_social'), 'CAT_CAPITAL_SOCIAL')}
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Acciones Inmobiliaria AMIS
+            </th>
+            <td class="datosLlenados">
+              ${getSiNo(detalleCia.get('acciones_inmobiliaria_amis'))}
+            </td>
+            <th>
+                Estado:       
+            </th>
+            <td class="datosLlenados">
+                ${detalleCia.get('estado')}
+            </td>
+          </tr>
+          <tr>
+            <th>
+                Fecha alta:
+            </th>
+            <td class="datosLlenados">
+                ${detalleCia.get('fecha_alta')}
+            </td>
+          </tr>
+          <tr>
+            <td align="right">              
+              <t:submit 
+                  t:id="modificaCompania"
+                  class="boton"
+                  value="Actualiza"
+                alt="Actualiza" 
+                border="0"/>                    
+            </td>
+          </tr>                               
+        </table>                
+      </t:form>          
+        </div>        
+    </t:if>
+</span>

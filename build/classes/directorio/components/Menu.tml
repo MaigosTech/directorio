@@ -1,0 +1,12 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  <t:menuHolder id="menu" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+    <t:menuItem page="admindirectorio" title="OPERACIONES ADMINISTRADOR" isPage="false">
+        <t:menuItem page="admindirectorio/AdminUsuario" title="AGREGAR USUARIO" />
+        <t:menuItem page="admindirectorio/AdminPersona" title="AGREGAR PERSONA" />
+        <t:menuItem page="admindirectorio/AdminCompania" title="AGREGAR COMPA&Ntilde;&Iacute;AS" />
+        <t:menuItem page="admindirectorio/AdminCatalogo" title="CAT&Aacute;LOGOS" />
+    </t:menuItem>
+    <t:menuItem page="adminarea" title="Administrador de Personas por Area" isPage="false" />
+    <t:menuItem page="consulta/Consulta" title="CONSULTA DIRECTORIO" />
+  </t:menuHolder> 

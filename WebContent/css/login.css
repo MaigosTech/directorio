@@ -1,0 +1,120 @@
+#wrapLogin{
+	background: url(../img/bgLogin.jpg) no-repeat;
+	width: 1024px;
+	height: 768px;
+	overflow: hidden;
+	margin:0 auto;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+}
+#logoLogin{
+	background: url(../img/logoLogin.png) no-repeat;
+	width: 372px;
+	height: 130px;
+	margin:0 auto;
+	display: block;
+	margin-top: 24px;
+}
+#innerLogin{
+	background: url(../img/bg_innerLogin.png) no-repeat;
+	width: 350px;
+	height: 373px;
+	margin:0 auto;
+	overflow: hidden;
+	position: relative;
+	margin-top: 60px;
+}
+h1{
+	font-size: 30px;
+	color:#fff;
+	text-align: center;
+	text-transform: uppercase;
+	margin:0;
+}
+h4{
+	font-size: 18px;
+	color:#fff;
+	text-align: center;
+	text-transform: uppercase;
+	margin:0;
+}
+.shadow{
+	text-shadow: 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 0px 20px rgba(0,0,0,.15);
+}
+/*Titulos*/
+.cabeza1{
+	margin-top:20px;
+	margin-bottom: 15px;
+}
+.cabeza2{
+	margin-bottom: 15px;
+}
+/*Inputs*/
+#input_user{
+	background: url(../img/bgUserInput.png) no-repeat;
+	width: 308px;
+	height: 59px;
+	overflow: hidden;
+	margin:0 auto;
+}
+#input_user input{
+	background: none;
+	border: none;
+	color:#000;
+	font-size: 16px;
+	display: block;
+	float: left;
+	margin-top: 21px;
+	margin-left:50px;
+	outline: none;
+}
+
+#input_pass{
+	background: url(../img/bgPassInput.png) no-repeat;
+	width: 308px;
+	height: 59px;
+	overflow: hidden;
+	margin:0 auto;
+}
+#input_pass input{
+	background:none;
+	border: none;
+	color:#000;
+	font-size: 16px;
+	display: block;
+	float: left;
+	margin-top: 21px;
+	margin-left: 50px;
+	outline: none;
+}
+/*error*/
+#error_login{
+	height: 19px;
+	margin:0 auto;
+	text-align: center;
+	color:#fff;
+	font-size: 14px;
+}
+/*Botón Accesar*/
+#btn_accesar{
+	background: url(../img/bg_btnAccesar.png) no-repeat;
+	width: 308px;
+	height: 90px;
+	display: block;
+	overflow: hidden;
+	margin:0 auto;
+	border:none;
+	cursor:pointer;
+	outline: none;
+}
+/* Olvido contraseña */
+#forgotPass{
+	font-size: 15px;
+	text-align: right;
+	color: #fff;
+	margin:0;
+	margin-right: 32px;
+}
+#forgotPass a{
+	color:#fff;
+}

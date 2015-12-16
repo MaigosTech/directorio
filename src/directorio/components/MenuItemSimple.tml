@@ -1,0 +1,11 @@
+<li xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:p="tapestry:parameter">
+        <t:if test="isPage">
+                <t:pageLink page="${page}" class="${className}" context="${context}">${pageTitle}</t:pageLink>
+         <p:else>
+                <a href="#" class="${className}">${pageTitle}</a>
+         </p:else>
+         </t:if>
+        <ul>
+                <t:body/>
+        </ul>
+</li>

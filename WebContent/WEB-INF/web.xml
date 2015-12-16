@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!--$Id: web.xml,v 1.1 2010/09/08 17:44:46 cvsima Exp $ -->
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+	<display-name>Directorio AMIS</display-name>
+    <context-param>
+        <param-name>tapestry.app-package</param-name>
+        <param-value>directorio</param-value>
+    </context-param>   
+    <context-param>
+        <param-name>tapestry.gzip-compression-enabled</param-name>
+        <param-value>false</param-value>
+    </context-param>   
+   <context-param>
+        <param-name>tapestry.production-mode</param-name>
+        <param-value>false</param-value>
+   </context-param> 
+    <filter>
+        <filter-name>directorioamis</filter-name>
+        <filter-class>org.apache.tapestry5.TapestryFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>directorioamis</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <servlet>
+    <servlet-name>InitProperties</servlet-name>
+    <servlet-class>directorio.misc.InitProperties</servlet-class>
+	 <init-param>
+		 <param-name>config.file</param-name>
+		 <param-value>config.properties</param-value>
+	 </init-param>
+	 <load-on-startup>1</load-on-startup>
+  </servlet>  
+  <servlet-mapping>
+    <servlet-name>InitProperties</servlet-name>
+	 <url-pattern>/InitProperties</url-pattern>
+  </servlet-mapping>
+  <session-config>
+  	<session-timeout>25</session-timeout>
+  </session-config>
+  <mime-mapping>
+    <extension>xhtml</extension>
+    <!--mime-type>application/xhtml+xml</mime-type-->
+    <!--the above is not supported by IE6-->
+    <mime-type>text/html</mime-type>
+  </mime-mapping>
+</web-app>
+

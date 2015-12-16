@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<span t:type="layout" title="Operaciones Administrativas CODIS"
+    xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+    xmlns:p="tapestry:parameter" >
+    <div id="detallePersona">
+        <t:form t:id="formDatosPersona" class="form">
+            <p class="titleForm shadow">Personas</p>        
+            <table id="detalleDatos">
+                    <t:if test="errorTmp">
+                    <tr>
+                        <td colspan="4" align="center">
+                            <p><font color="red">No se puede proceder a la modificaci&oacute;n.<br/>
+                                El sistema ha reportado el(los) siguiente(s) error(es):</font></p>
+                                <ul>
+                                    <li>${errorTmp}</li>
+                                </ul>
+                        </td>
+                    </tr>
+                    </t:if>
+                    <tr>
+                        <th>Compa&ntilde;&iacute;a</th>
+                        <td>
+                            <t:select model="listaCiaSelectionModel" 
+                                      encoder="listaCiaValueEncoder"
+                                      t:id="padre"
+                                      blankOption="NEVER"
+                                      t:value="cia" />
+                        </td>
+                        <th>Tel&eacute;fono Compa&ntilde;&iacute;a</th>
+                        <td>
+                            <t:TextField name="telefonocia"
+                                t:id="telefonocia"
+                                value="telefonocia"
+                                maxlength="25" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Tipo de Persona</th>
+                        <td>
+                            <select t:type="select" 
+                                model="listaTipoPersonaSelectionModel" 
+                                encoder="listaTipoPersonaValueEncoder"
+                                blankOption="NEVER"                                     
+                                t:value="tipoPersona"/>
+                        </td>
+                        <th>Tel&eacute;fono Directo</th>
+                        <td>
+                            <t:TextField name="telefonodir"
+                                t:id="telefonodir"
+                                value="telefonodir"
+                                maxlength="25" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Nivel de Persona</th>
+                        <td>
+                            <ul class="listaCheck">
+                                <li><t:checkbox t:id="comiteEjecutivo" /> <t:label for="comiteEjecutivo" >Comit&eacute; Ejecutivo</t:label></li>
+                                <li><t:checkbox t:id="directorGeneral" /> <t:label for="directorGeneral"/></li>
+                                <li><t:checkbox t:id="expresidentes" /> <t:label for="expresidentes"/></li>
+                                <li><t:checkbox t:id="directoresFinanzas" /> <t:label for="directoresFinanzas"/></li>
+                                <li><t:checkbox t:id="asistentesDG" /> <t:label for="asistentesDG"/></li>                                
+                            </ul>
+                            <ul class="listaCheck">                                
+                                <li><t:checkbox t:id="vocal" /> <t:label for="vocal"/></li>
+                                <li><t:checkbox t:id="contacto" /> <t:label for="contacto"/></li>
+                                <li><t:checkbox t:id="aseguradoresD" /> <t:label for="aseguradoresD"/></li>
+                                <li><t:checkbox t:id="oii" /> <t:label for="oii"/></li>
+                                <li><t:checkbox t:id="ocra" /> <t:label for="ocra"/></li>
+                            </ul>
+                        </td>
+                        <th>Tel&eacute;fono Casa</th>
+                        <td>
+                            <t:TextField name="telefonocasa"
+                                t:id="telefonocasa"
+                                value="telefonocasa"
+                                maxlength="25" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>&Aacute;rea</th>
+                        <td>
+                            <select t:type="select" 
+                                model="listaAreaSelectionModel" 
+                                encoder="listaAreaValueEncoder"
+                                blankOption="NEVER"                                     
+                                t:value="area"/>
+                        </td>
+                        <th>Tel&eacute;fono Celular</th>
+                        <td>
+                            <t:TextField name="telefonocel"
+                                t:id="telefonocel"
+                                value="telefonocel"
+                                maxlength="25" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>T&iacute;tulo</th>
+                        <td>
+                            <t:TextField name="titulo"
+                                t:id="titulo"
+                                value="titulo"
+                                maxlength="25" 
+                                t:validate="required,minlength=3" 
+                                onBlur="javascript:this.value=this.value.toUpperCase();" />
+                        </td>
+                        <th>Facebook</th>
+                        <td>
+                            <t:TextField name="facebook"
+                                t:id="facebook"
+                                value="facebook"
+                                maxlength="25" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Nombre</th>
+                        <td>
+                            <t:TextField name="nombre"
+                                t:id="nombre"
+                                value="nombre"
+                                maxlength="25" 
+                                t:validate="required,minlength=3" 
+                                onBlur="javascript:this.value=this.value.toUpperCase();"/>                                 
+                        </td>
+                        <th>WhatsApp</th>
+                        <td>
+                            <t:TextField name="whatsapp"
+                                t:id="whatsapp"
+                                value="whatsapp"
+                                maxlength="25" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Apellido Paterno</th>
+                        <td>
+                            <t:TextField name="apellidop"
+                                t:id="paterno"
+                                value="paterno"
+                                maxlength="25" 
+                                t:validate="required,minlength=3" 
+                                onBlur="javascript:this.value=this.value.toUpperCase();"/>
+                        </td>
+                        <th>Twitter</th>
+                        <td>
+                            <t:TextField name="twitter"
+                                t:id="twitter"
+                                value="twitter"
+                                maxlength="25" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Apellido Materno</th>
+                        <td>
+                            <t:TextField name="apellidom"
+                                t:id="materno"
+                                value="materno"
+                                maxlength="25"
+                                onBlur="javascript:this.value=this.value.toUpperCase();" />
+                        </td>
+                        <th>Email Empresa</th>
+                        <td>
+                            <t:TextField name="emailcia"
+                                t:id="emailcia"
+                                value="emailcia"
+                                maxlength="50" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Puesto</th>
+                        <td>
+                            <t:TextField name="puesto"
+                                t:id="puesto"
+                                value="puesto"
+                                maxlength="50" 
+                                onBlur="javascript:this.value=this.value.toUpperCase();" />
+                        </td>
+                        <th>Email Personal</th>
+                        <td>
+                            <t:TextField name="emailp"
+                                t:id="emailp"
+                                value="emailp"
+                                maxlength="50" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Oficina</th>
+                        <td>
+                            <t:select 
+                                model="listaOficinaSelectionModel"
+                                encoder="listaOficinaValueEncoder"
+                                t:mixins="selectConClases"
+                                t:id="hijo"
+                                blankOption="NEVER"
+                                t:value="oficina" 
+                                onBlur="javascript:this.value=this.value.toUpperCase();" />
+                        </td>
+                        <th>Estado en el Directorio</th>
+                        <td colspan="2">
+                            <t:select t:id="estado" model="literal: A=Activo, I=Inactivo" blankOption="NEVER" />
+                        </td>
+                    </tr>                            
+                    <tr>
+                        <th></th>
+                        <td>
+                            <t:submit 
+                                t:id="creaPersona"
+                                class="btnAgregar"
+                                value="Crear Persona"
+                                alt="Crear Persona" />
+                        </td>
+                        <th>Observaciones</th>
+                        <td>
+                            <t:TextField name="observaciones"
+                                t:id="observaciones"
+                                value="observaciones"
+                                maxlength="25" 
+                                onBlur="javascript:this.value=this.value.toUpperCase();" />
+                        </td>
+                    </tr>                    
+                </table>                    
+        </t:form>
+    </div>            
+    <script>
+    jQuery(document).ready(function() {
+            makeSublist('padre','hijo', false, '');            
+        });
+    </script>
+</span>

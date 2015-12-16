@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<span t:type="layout" title="Operaciones Administrativas CODIS"
+    xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+    xmlns:p="tapestry:parameter">
+    <style>    
+    #areaBusqueda{
+        width: 100%;
+        position: relative;
+    }
+    .busqueda{
+        width: 48%;
+        float: left;
+    }
+    .dataTables_filter{
+        visibility: hidden;
+    }
+    #resultadoP, #resultadoC{
+        background: #585858;        
+        position: absolute;
+        width: 95%;
+        top: 140px;
+        right: 30px;
+        overflow:hidden;        
+    }
+    
+    </style>
+    <script>
+        jQuery(document).ready(function($){                
+
+                function initTablaP(){
+                    var tableP = $('#tablaPersonas').DataTable( {
+                        language: {
+                            "sProcessing":     "Procesando...",
+                            "sLengthMenu":     "Mostrar _MENU_ registros",
+                            "sZeroRecords":    "No se encontraron resultados",
+                            "sEmptyTable":     "Ningún dato disponible en esta tabla",
+                            "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                            "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+                            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+                            "sInfoPostFix":    "",
+                            "sSearch":         "Buscar:",
+                            "sUrl":            "",
+                            "sInfoThousands":  ",",
+                            "sLoadingRecords": "Cargando...",
+                            "oPaginate": {
+                                "sFirst":    "Primero",
+                                "sLast":     "Último",
+                                "sNext":     "Siguiente",
+                                "sPrevious": "Anterior"
+                            }
+                        },
+                        columnDefs : [
+                            {
+                                "targets": [0],
+                                "visible": false
+                            },
+                            {
+                              "targets": [1],
+                              "visible": false  
+                            },
+                            {
+                              "targets": [2],
+                              "visible": false  
+                            }
+                        ]
+                    } );
+                    filtrosP(tableP);
+                    return tableP;
+                }
+
+                function initTablaC(){
+                    var tableC = $('#tablaCompanias').DataTable( {
+                        language: {
+                            "sProcessing":     "Procesando...",
+                            "sLengthMenu":     "Mostrar _MENU_ registros",
+                            "sZeroRecords":    "No se encontraron resultados",
+                            "sEmptyTable":     "Ningún dato disponible en esta tabla",
+                            "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                            "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+                            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+                            "sInfoPostFix":    "",
+                            "sSearch":         "Buscar:",
+                            "sUrl":            "",
+                            "sInfoThousands":  ",",
+                            "sLoadingRecords": "Cargando...",
+                            "oPaginate": {
+                                "sFirst":    "Primero",
+                                "sLast":     "Último",
+                                "sNext":     "Siguiente",
+                                "sPrevious": "Anterior"
+                            }
+                        }                        
+                    } );
+                    filtrosC(tableC);
+                    return tableC;
+                }
+
+                function filtrosP(tableP){
+                    $('#nombre').on( 'keyup', function () {
+                        tableP
+                            .columns( 0 )
+                            .search( this.value )
+                            .draw();                    
+                    });
+                    $('#paterno').on( 'keyup', function () {
+                        tableP
+                            .columns( 1 )
+                            .search( this.value )
+                            .draw();                    
+                    });
+                    $('#materno').on( 'keyup', function () {
+                        tableP
+                            .columns( 2 )
+                            .search( this.value )
+                            .draw();                    
+                    });
+                    $('#area').on( 'keyup', function () {
+                        tableP
+                            .columns( 6 )
+                            .search( this.value )
+                            .draw();                    
+                    });
+                    $('#cia').on( 'keyup', function () {
+                        tableP
+                            .columns( 5 )
+                            .search( this.value )
+                            .draw();                    
+                    });
+                    $('#puesto').on( 'keyup', function () {
+                        tableP
+                            .columns( 7 )
+                            .search( this.value )
+                            .draw();                    
+                    });
+                    $('#estado').on( 'change', function(){                        
+                        if(this.value === 'T'){
+                            tableP
+                            .columns( 8 )
+                            .search( '' )
+                            .draw();
+                        }else{
+                            tableP
+                            .columns( 8 )
+                            .search( this.value )
+                            .draw();
+                        } 
+                    });
+                }
+
+                function filtrosC(tableC){
+                    $('#razonSocial').on( 'keyup', function () {
+                        tableC
+                            .columns( 1 )
+                            .search( this.value )
+                            .draw();                    
+                    });
+                    $('#nombreCorto').on( 'keyup', function () {
+                        tableC
+                            .columns( 2 )
+                            .search( this.value )
+                            .draw();                    
+                    });
+                    $('#ramo').on( 'keyup', function () {
+                        tableC
+                            .columns( 3 )
+                            .search( this.value )
+                            .draw();                    
+                    });
+                    $('#tipoMercado').on( 'keyup', function () {
+                        tableC
+                            .columns( 4 )
+                            .search( this.value )
+                            .draw();                    
+                    });
+                    $('#canalVentas').on( 'keyup', function () {
+                        tableC
+                            .columns( 5 )
+                            .search( this.value )
+                            .draw();
+                    });
+                    $('#capitalSocial').on( 'keyup', function () {
+                        tableC
+                            .columns( 6 )
+                            .search( this.value )
+                            .draw();
+                    });
+                    $('#estadoCia').on( 'change', function(){
+                        if(this.value === 'T'){
+                            tableC
+                            .columns( 7 )
+                            .search( '' )
+                            .draw();
+                        }else{
+                            tableC
+                            .columns( 7 )
+                            .search( this.value )
+                            .draw();
+                        } 
+                    });
+                }
+
+
+                var tableP = initTablaP();
+                var tableC = initTablaC();                
+                $("#wrapperTablas").hide();
+                $("#resultadoP").hide();
+                $("#resultadoC").hide();
+
+                $("#regresaP").click(function(){
+                    console.log("Presionando regresaP");
+                    $("#resultadoP").hide();
+                    $("#wrapperTablas").hide();
+
+                });
+                $("#regresaC").click(function(){
+                    console.log("Presionando regresaC");
+                    $("#resultadoC").hide();
+                    $("#wrapperTablas").hide();
+                });
+
+                $("#buscaP").click(function (){
+                    console.log("Presionando buscaP");
+                     $("#wrapperTablas").show();
+                    $("#resultadoP").show();
+                    $("#resultadoC").hide();
+                });
+
+                $("#buscaC").click(function (){
+                    console.log("Presionando buscaC");
+                     $("#wrapperTablas").show();
+                    $("#resultadoC").show();
+                    $("#resultadoP").hide();
+                });                
+                $("#imprimeXlsP, #imprimePdfP").click(function(){                    
+                    console.log("Generando arreglo de id's de personas");
+                    var datos = [];                    
+                    tableP.$('tr', {"filter":"applied"}).each(function(index){
+                        //datos.push($(this).find("td:eq(0)").text());
+                        datos.push($(this).find("td:eq(0)").text());
+                    });
+                    $("#tablaJsonP").val(datos.toString());
+                    console.log($("#tablaJsonP").val());
+                    /*tableP.columns(4).indexes().each(function(idx){
+                            console.log(this.column(idx).data());
+                    });
+                    console.log();*/
+                });
+                $("#imprimeXlsC, #imprimePdfC").click(function(){                    
+                    console.log("Generando arreglo de id's de compañias");
+                    var datos = [];                    
+                    tableC.$('tr', {"filter":"applied"}).each(function(index){
+                        datos.push($(this).find("td:eq(0)").text());
+                    });
+                    $("#tablaJsonC").val(datos.toString());
+                    console.log($("#tablaJsonC").val());
+                    /*tableP.columns(4).indexes().each(function(idx){
+                            console.log(this.column(idx).data());
+                    });
+                    console.log();*/
+                });
+        });
+    </script>    
+    <div id="forms_dir">        
+        <t:form t:id="consultaPersona">
+            <p class="titleForm shadow">Personas</p>
+            <table class="tablaInterna">                
+                <tr>
+                    <th>
+                        Nombre:           
+                    </th>
+                    <td colspan="3">
+                        <t:TextField t:id="nombre" t:value="nombre" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Apellido Paterno:                
+                    </th>
+                    <td colspan="3">
+                        <t:TextField t:id="paterno" t:value="paterno" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Apellido Materno
+                    </th>
+                    <td colspan="3">
+                        <t:TextField t:id="materno" t:value="materno" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        &Aacute;rea:  
+                    </th>
+                    <td colspan="3">
+                        <t:TextField t:value="area" t:id="area" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Puesto:
+                    </th>
+                    <td colspan="2">
+                        <t:TextField t:value="puesto" t:id="puesto" />
+                    </td>                                   
+                </tr>
+                <tr>
+                    <th>
+                        Compa&ntilde;&iacute;a:
+                    </th>
+                    <td colspan="2">
+                        <t:TextField t:value="cia" t:id="cia" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Estado:
+                    </th>
+                    <td colspan="2">
+                        <t:select t:id="estado" model="literal: T=Todos, A=Activo, I=Inactivo" blankOption="NEVER" />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="button" id="buscaP" class="btn_buscar" />
+                    </td>
+                </tr>
+            </table>
+        </t:form>
+        <t:form t:id="consultaCia">
+            <p class="titleForm shadow" style="margin-left:70px;">Compa&ntilde;&iacute;a</p>
+            <table class="tablaInterna">
+                <tr>
+                    <th>
+                        Raz&oacute;n Social:
+                    </th>
+                    <td colspan="3">
+                        <t:TextField t:id="razonSocial" t:value="razonSocial" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Nombre Corto:
+                    </th>
+                    <td colspan="3">
+                        <t:TextField t:id="nombreCorto" t:value="nombreCorto" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Ramos:
+                    </th>
+                    <td colspan="3">
+                        <t:TextField t:id="ramo" t:value="ramo" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Tipo de Mercado:
+                    </th>
+                    <td colspan="3">
+                        <t:TextField t:value="tipoMercado" t:id="tipoMercado" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Canal de Ventas:
+                    </th>
+                    <td colspan="2">
+                        <t:TextField t:value="canalVentas" t:id="canalVentas" />
+                    </td>                                   
+                </tr>
+                <tr>
+                    <th>
+                        Capital Social:
+                    </th>
+                    <td colspan="2">
+                        <t:TextField t:value="capitalSocial" t:id="capitalSocial" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Estado:
+                    </th>
+                    <td colspan="2">
+                        <t:select t:id="estadoCia" model="literal: T=Todos, A=Activo, I=Inactivo" blankOption="NEVER" />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="button" id="buscaC" class="btn_buscar" />
+                    </td>
+                </tr>
+            </table>
+        </t:form>        
+    </div>
+    <!-- Tablas de resultados -->
+    <div id="wrapperTablas">
+        
+        <div id="resultadoP">
+        <t:if test="getPermisoImp('consulta')">
+        	<t:form t:id="imprimeP">
+                <t:TextField t:id="tablaJsonP"  style="display:none;"/>
+                <t:submit 
+                    t:id="imprimeXlsP"
+                    id="imprimeXlsP"
+                    class="imprimeXls"
+                    value="Imprime Excel"
+                    alt="Imprime Xls" />
+                <t:submit 
+                    t:id="imprimePdfP"
+                    id="imprimePdfP"
+                    class="imprimePdf"
+                    value="Imprime PDF"
+                    alt="Imprime Xls" />    
+            </t:form>
+        </t:if>
+            <div>
+                <input id="regresaP" type="button" value="Regresar" class="btnRegresarPopUp" />
+            </div>
+            <table class="tablaInterna">
+                <t:if test="errorTmp">
+                <tr>
+                    <td colspan="4" align="center">
+                        <p><font color="red">No se puede proceder a la busqueda.<br/>
+                            El sistema ha reportado el(los) siguiente(s) error(es):</font></p>
+                            <ul>
+                                <li>${errorTmp}</li>
+                            </ul>
+                    </td>
+                </tr>
+                </t:if>
+                <tr>
+                    <table id="tablaPersonas">
+                        <thead>
+                            <tr>
+                                <th>N</th>
+                                <th>AP</th>
+                                <th>AM</th>
+                                <th>ID</th>
+                                <th>NOMBRE</th>
+                                <th>COMPA&Ntilde;&Iacute;A</th>
+                                <th>&Aacute;REA</th>
+                                <th>PUESTO</th>
+                                <th>ESTADO</th>
+                            </tr>
+                        </thead>                               
+                        <tbody>
+                            <tr t:type="Loop" t:source="personas" t:value="persona">
+                                <td>${persona.nombre}</td>
+                                <td>${persona.paterno}</td>
+                                <td>${persona.materno}</td>
+                                <td>${persona.idPersona}</td>
+                                <td><t:actionlink t:id="modifica" class="linkTabla" context="persona.idPersona">${persona.nombreCompleto}</t:actionlink></td>                                                                                     
+                                <td>${persona?.cia?.nombre}</td>                                         
+                                <td>${persona.area.nombre}</td>
+                                <td>${persona.puesto}</td>                                          
+                                <td>${persona.estatus}</td>                                         
+                            </tr>
+                        </tbody>
+                    </table>            
+                </tr>
+            </table>        
+        </div>
+        <div id="resultadoC">
+        	
+            <t:form id="imprimeC">
+            	<t:TextField t:id="tablaJsonC" style="display:none;" />
+                <t:submit
+                	t:id="imprimeXlsC"                     
+                    id="imprimeXlsC"
+                    class="imprimeXls"
+                    value="Imprime Excel"
+                    alt="Imprime Xls" />
+                <t:submit
+					t:id="imprimePdfC"                                  
+                    id="imprimePdfC"
+                    class="imprimePdf"
+                    value="Imprime PDF"
+                    alt="Imprime Xls" />    
+            </t:form>
+            <div>
+                <input id="regresaC" type="button" value="Regresar" class="btnRegresarPopUp" />
+            </div>
+            <table class="tablaInterna">
+                <t:if test="errorTmp">
+                <tr>
+                    <td colspan="4" align="center">
+                        <p><font color="red">No se puede proceder a la busqueda.<br/>
+                            El sistema ha reportado el(los) siguiente(s) error(es):</font></p>
+                            <ul>
+                                <li>${errorTmp}</li>
+                            </ul>
+                    </td>
+                </tr>
+                </t:if>
+                <tr>
+                    <table id="tablaCompanias">
+                        <thead>
+                            <tr>
+                                <th>ID</th>                                            
+                                <th>RAZ&Oacute;N SOCIAL</th>
+                                <th>NOMBRE CORTO</th>
+                                <th>RAMOS</th>
+                                <th>TIPO DE MERCADO</th>
+                                <th>CANAL DE VENTAS</th>
+                                <th>CAPITAL SOCIAL</th>
+                                <th>ESTADO</th>
+                            </tr>
+                        </thead>                               
+                        <tbody>
+                            <tr t:type="Loop" t:source="companias" t:value="compania">
+                                <td>${compania.id}</td>
+                                <td><t:actionlink t:id="modificaCia" class="linkTabla" context="compania.id">${compania.razonSocial}</t:actionlink></td>
+                                <td>${compania.nombre}</td>
+                                <t:if test="compania.listaRamo">
+                                    <td><p t:type="Loop" t:source="compania.listaRamo" t:value="muestraRamo">${muestraRamo.nombre}</p></td>
+                                    <p:else>
+                                        <td>No tiene ramos registrados</td>
+                                    </p:else>
+                                </t:if>                                            
+                                <td>${compania.tipoMercado.nombre}</td>
+                                <td>${compania.canalVenta.nombre}</td>
+                                <td>${compania.CapitalSocial.nombre}</td>
+                                <td>${compania.estado}</td>
+                            </tr>
+                        </tbody>
+                    </table>            
+                </tr>
+            </table>
+        </div>
+    </div>
+</span>

@@ -1,0 +1,61 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+    xmlns:p="tapestry:parameter">
+    <head>
+        <script src="/directorioamis/resources/DataTables-1.10.3/media/js/jquery.js"/>
+        <link rel="stylesheet" type="text/css" href="/directorioamis/resources/DataTables-1.10.3/media/css/jquery.dataTables.css" > </link>
+        <link rel="stylesheet" type="text/css" href="/directorioamis/resources/DataTables-1.10.3/extensions/TableTools/css/dataTables.tableTools.css" > </link>
+        <script type="text/javascript" charset="utf8" src="/directorioamis/resources/DataTables-1.10.3/media/js/jquery.dataTables.min.js" />
+        <script type="text/javascript" charset="utf8" src="/directorioamis/resources/DataTables-1.10.3/extensions/TableTools/js/dataTables.tableTools.js" />        
+        <link rel="stylesheet" href="/directorioamis/css/main.css" />
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css' />                
+        <script type="text/javascript" >
+            $.noConflict(); 
+            /* document.observe("dom:loaded", function() {
+                document.getElementById('loading').style.display='none';
+            
+                Ajax.Responders.register({
+                      onCreate: function() {
+                        document.getElementById('loading').style.display='';
+                      },
+                      onComplete: function() {
+                        document.getElementById('loading').style.display='none';
+                      }
+                    }); 
+            }); */            
+        </script>
+    </head>
+<body marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" bgcolor="#FFFFFF">
+        <style>
+            .datePicker td .topLabel {
+                color: windowtext;
+                display: block;
+                font-weight: bold !important;
+                text-decoration: none;
+                width: 100%;
+            }
+            .datePicker .header {
+                background: ActiveBorder;
+                padding: 3px;
+                border-bottom: 1px solid WindowText;
+            }
+        </style>
+<!--div id="loading">
+    Cargando...
+</div -->
+<div id="header_directorio">
+    <img src="/directorioamis/img/logo_amis.jpg" width="80" height="30" alt="AMIS" />
+    <div id="tittle_Dir">
+        <h1 id="tituloApp" class="shadow">Directorio</h1>
+            
+    </div>
+    <a t:type="pagelink" page="Logout" class="cerrar">
+        <img src="/directorioamis/img/btnCerrarSesion.png" alt="" />
+    </a>    
+</div>
+<div t:type="menu">Menu</div>
+<div id="wrap_directorio">
+    <t:body/>
+</div>
+</body> 
+</html>

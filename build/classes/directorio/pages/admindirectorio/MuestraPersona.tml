@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<span t:type="layout" title="Operaciones Administrativas CODIS"
+    xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+    xmlns:p="tapestry:parameter" >
+    <div id="detallePersona">
+      <t:form t:id="formDatosPersona" class="form">
+            <p class="titleForm shadow">Personas</p>
+        <t:pagelink page="consulta/Consulta" style="display:block; float:right; margin-top:35px; margin-right:30px;">
+          <img src="/directorioamis/img/btnRegresar.png" alt="historico"/>
+        </t:pagelink>
+        <div class="btnHistorico">
+          <img src="/directorioamis/img/btnHistorico.png" width="106" height="35"  alt="historico"/>
+        </div>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0" id="detalleDatos">
+                      <t:if test="errorTmp">
+                        <tr>
+                            <td colspan="4" align="center">
+                                <p><font color="red">No se puede proceder a la modificaci&oacute;n.<br/>
+                                    El sistema ha reportado el(los) siguiente(s) error(es):</font></p>
+                                    <ul>
+                                        <li>${errorTmp}</li>
+                                    </ul>
+                            </td>
+                        </tr>
+                      </t:if>
+                      <t:if test="getRol('admin')">
+                        <tr>
+                            <th>Compa&ntilde;&iacute;a</th>
+                            <td>
+                                <t:select model="listaCiaSelectionModel" 
+                                            encoder="listaCiaValueEncoder"
+                                            blankOption="NEVER"
+                                            t:value="persona.cia"
+                                            t:id="padre" />
+                            </td>
+                            <th>Tel&eacute;fono Compa&ntilde;ia</th>
+                            <td>
+                                <t:TextField name="telefonocia"
+                                      t:id="telefonocia"
+                                      value="persona.telefonocia"
+                                      maxlength="25" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Tipo de Persona</th>
+                            <td>
+                                <select t:type="select" 
+                                          model="listaTipoPersonaSelectionModel" 
+                                          encoder="listaTipoPersonaValueEncoder"
+                                          blankOption="NEVER"                                     
+                                          t:value="persona.tipoPersona"/>                                    
+                            </td>
+                            <th>Tel&eacute;fono Directo</th>
+                            <td>
+                                <t:TextField name="telefonodir"
+                                      t:id="telefonodir"
+                                      value="persona.telefonoDirecto"
+                                      maxlength="25" />
+                            </td>
+                        </tr>
+                        <tr>
+                          <th rowspan="5">Nivel de Persona</th>
+                          <td rowspan="5">
+                            <ul class="listaCheck">
+                                <li><t:checkbox t:id="comiteEjecutivo" checked="${getChecked(1)}" /><t:label for="comiteEjecutivo" >Comit&eacute; Ejecutivo</t:label></li>
+                                <li><t:checkbox t:id="directorGeneral" checked="${getChecked(2)}" /><t:label for="directorGeneral"/></li>
+                                <li><t:checkbox t:id="expresidentes" checked="${getChecked(3)}" /><t:label for="expresidentes"/></li>
+                                <li><t:checkbox t:id="directoresFinanzas" checked="${getChecked(4)}" /><t:label for="directoresFinanzas"/></li>
+                                <li><t:checkbox t:id="asistentesDG" checked="${getChecked(5)}" /><t:label for="asistentesDG"/></li>                                
+                            </ul>
+                            <ul class="listaCheck">                                
+                                <li><t:checkbox t:id="vocal" checked="${getChecked(6)}" /> <t:label for="vocal"/></li>
+                                <li><t:checkbox t:id="contacto" checked="${getChecked(7)}" /> <t:label for="contacto"/></li>
+                                <li><t:checkbox t:id="aseguradoresD" checked="${getChecked(8)}" /> <t:label for="aseguradoresD"/></li>
+                                <li><t:checkbox t:id="oii" checked="${getChecked(9)}" /> <t:label for="oii"/></li>
+                                <li><t:checkbox t:id="ocra" checked="${getChecked(10)}" /> <t:label for="ocra"/></li>
+                            </ul>                            
+                          </td>
+                          <th>Tel&eacute;fono Casa</th>
+                          <td><t:TextField name="telefonocasa"
+                                      t:id="telefonocasa"
+                                      value="persona.telefonoCasa"
+                                      maxlength="25" /></td>
+                        </tr>
+                        <tr>
+                          <th>Tel&eacute;fono Celular</th>
+                            <td>
+                                <t:TextField name="telefonocel"
+                                      t:id="telefonocel"
+                                      value="persona.cel"
+                                      maxlength="25" />
+                            </td>
+                        </tr>
+                        <tr>
+                          <th>Facebook</th>
+                            <td>
+                                <t:TextField name="facebook"
+                                      t:id="facebook"
+                                      value="persona.facebook"
+                                      maxlength="25" />
+                            </td>
+                        </tr>
+                        <tr>
+                          <th>WhatsApp</th>
+                            <td>
+                                <t:TextField name="whatsapp"
+                                      t:id="whatsapp"
+                                      value="persona.whatsapp"
+                                      maxlength="25" />
+                            </td>
+                        </tr>
+                        <tr>
+                          <th>Twitter</th>
+                            <td>
+                                <t:TextField name="twitter"
+                                      t:id="twitter"
+                                      value="persona.twitter"
+                                      maxlength="25" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>&Aacute;rea</th>
+                            <td>
+                                <select t:type="select" 
+                                      model="listaAreaSelectionModel" 
+                                      encoder="listaAreaValueEncoder"
+                                      blankOption="NEVER"                                     
+                                      t:value="persona.area"/>
+                            </td>
+                            <th>Email Empresa</th>
+                            <td>
+                                <t:TextField name="emailcia"
+                                      t:id="emailcia"
+                                      value="persona.emailEmpresa"
+                                      maxlength="50" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>T&iacute;tulo</th>
+                            <td>
+                                <t:TextField name="titulo"
+                                      t:id="titulo"
+                                      value="persona.titulo"
+                                      maxlength="25" 
+                                      onBlur="javascript:this.value=this.value.toUpperCase();" />
+                            </td>
+                            <th>Email Personal</th>
+                            <td>
+                                <t:TextField name="emailp"
+                                      t:id="emailp"
+                                      value="persona.emailPersonal"
+                                      maxlength="50" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Nombre</th>
+                            <td>
+                                <t:TextField name="nombre"
+                                      t:id="nombre"
+                                      value="persona.nombre"
+                                      maxlength="25"
+                                      t:validate="required,minlength=3" 
+                                      onBlur="javascript:this.value=this.value.toUpperCase();" />                                 
+                            </td>
+                            <th>Estado en el Directorio</th>
+                            <td colspan="2">
+                                <!--t:select t:id="estado" value="persona.estatus" model="literal: A=Activo, I=Inactivo" blankOption="NEVER" /-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Apellido Paterno</th>
+                            <td>
+                                <t:TextField name="apellidop"
+                                      t:id="paterno"
+                                      value="persona.paterno"
+                                      maxlength="25"
+                                      t:validate="required,minlength=3" 
+                                      onBlur="javascript:this.value=this.value.toUpperCase();" />
+                            </td>
+                            <th>Observaciones</th>
+                            <td>
+                                <t:TextField name="observaciones"
+                                      t:id="observaciones"
+                                      value="persona.observaciones"
+                                      maxlength="25" 
+                                      onBlur="javascript:this.value=this.value.toUpperCase();" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Apellido Materno</th>
+                            <td>
+                                <t:TextField name="apellidom"
+                                      t:id="materno"
+                                      value="persona.materno"
+                                      maxlength="25" 
+                                      onBlur="javascript:this.value=this.value.toUpperCase();" />
+                            </td>
+                            <th rowspan="2">
+                              <t:submit 
+                                t:id="modificaPersona"
+                                class="btnEditar"
+                                value="Actualiza Persona"
+                                alt="Crear Persona" 
+                                border="0"/>
+                            </th>
+                            <td rowspan="2">
+                              <t:submit 
+                                t:id="eliminaPersona"
+                                class="btnEliminar"
+                                value="Elimina Persona"
+                                alt="Elimina Persona" 
+                                border="0"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Puesto</th>
+                            <td>
+                                <t:TextField name="puesto"
+                                      t:id="puesto"
+                                      value="persona.puesto"
+                                      maxlength="50" 
+                                      onBlur="javascript:this.value=this.value.toUpperCase();" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Oficina</th>
+                            <td>
+                                <t:select 
+                                      model="listaOficinaSelectionModel" 
+                                      encoder="listaOficinaValueEncoder"
+                                      t:mixins="selectConClases"
+                                      blankOption="NEVER"
+                                      t:value="persona.oficina"
+                                      t:id="hijo" />
+                            </td>
+                                                        <th>&nbsp;
+                              
+                            </th>
+                            <td>&nbsp;
+                            </td>
+                        </tr>                          
+                        <tr>
+                            <th>&nbsp;</th>
+                            <td>&nbsp;</td>
+                            <th>&nbsp;</th>
+                              <td class="datosLlenados">&nbsp;</td>
+                        </tr>                          
+                        <p:else>
+                          <tr>
+                              <th>Compa&ntilde;ia</th>
+                              <td class="datosLlenados">
+                                  ${persona.cia.nombre}
+                              </td>
+                                                          <th>Tel&eacute;fono Compa&ntilde;ia</th>
+                              <td class="datosLlenados">
+                                  ${persona.telefonocia}
+                              </td>
+                          </tr>
+                          <tr>
+                              <th>Tipo de Persona</th>
+                              <td class="datosLlenados">                                  
+                                  ${persona.tipoPersona.nombre}                                    
+                              </td>
+                              <th>Tel&eacute;fono Directo</th>
+                              <td class="datosLlenados">
+                                  ${persona.telefonoDirecto}
+                              </td>
+                          </tr>
+                          <tr>
+                              <th>Nivel de Persona</th>
+                              <td class="datosLlenados">
+                                  <p t:type="Loop" t:source="persona.nivelPersona" t:value="nivelPersona">
+                                    ${nivelPersona.nombre}
+                                  </p>
+                              </td>
+                                                            <th>Tel&eacute;fono Casa</th>
+                              <td class="datosLlenados">
+                                  ${persona.telefonoCasa}
+                              </td>
+                          </tr>
+                          <tr>
+                              <th>&Aacute;rea</th>
+                              <td class="datosLlenados">
+                                  ${persona.area.nombre}
+                              </td>
+                              <th>Tel&eacute;fono Celular</th>
+                              <td class="datosLlenados">
+                                  ${persona.cel}
+                              </td>
+                          </tr>
+                          <tr>
+                              <th>Titulo</th>
+                              <td class="datosLlenados">
+                                  ${persona.titulo}                                      
+                              </td>
+                              <th>Facebook</th>
+                              <td class="datosLlenados">
+                                  ${persona.facebook}
+                              </td>
+                          </tr>
+                          <tr>
+                              <th>Nombre</th>
+                              <td class="datosLlenados">
+                                  ${persona.nombre}
+                              </td>
+                              <th>WhatsApp</th>
+                              <td class="datosLlenados">
+                                  ${persona.whatsapp}
+                              </td>
+                          </tr>
+                          <tr>
+                              <th>Apellido Paterno</th>
+                              <td class="datosLlenados">
+                                  ${persona.paterno}
+                              </td>
+                              <th>Twitter</th>
+                              <td class="datosLlenados">
+                                  ${persona.twitter}
+                              </td>
+                          </tr>
+                          <tr>
+                              <th>Apellido Materno</th>
+                              <td class="datosLlenados">
+                                  ${persona.materno}
+                              </td>
+                              <th>Email Empresa</th>
+                              <td class="datosLlenados">
+                                  ${persona.emailEmpresa}
+                              </td>
+                          </tr>
+                          <tr>
+                              <th>Puesto</th>
+                              <td class="datosLlenados">
+                                  ${persona.puesto}
+                              </td>
+                              <th>Email Personal</th>
+                              <td class="datosLlenados">
+                                  ${persona.emailPersonal}
+                              </td>
+                          </tr>
+                          <tr>
+                              <th>Oficina</th>
+                              <td class="datosLlenados">
+                                  ${persona.oficina.nombre}
+                              </td>
+                              <th>Estado en el Directorio</th>
+                              <td class="datosLlenados">
+                                  ${persona.estatus}
+                              </td>
+                          </tr>
+                          <tr>
+                            <th >      <t:submit 
+                                    t:id="regresar"
+                                    class="btnRegresar"
+                                    value="Regresar"
+                                    alt="Regresar" 
+                                    border="0"/></th>
+                                    	<td>&nbsp;
+                                        </td>
+                            <th>Observaciones</th>
+                            <td>                                  
+                                  ${persona.observaciones}                                      
+                            </td>
+                          </tr>                            
+                        </p:else>
+                      </t:if>
+                  </table>                    
+        </t:form>
+    </div>
+    <div id="wrapperTablas">
+    <div id="baseHistorico">
+      <div>
+        <p class="titleForm shadow">LISTA DE HIST&Oacute;RICO</p>
+      </div>
+      <div><input id="regresaH" class="btnRegresarPopUp" type="button" value="Regresar" /></div>
+      <table id="tablaHistorico">
+          <thead>
+              <tr>                                            
+                  <th>Fecha Modificaci&oacute;n</th>
+                  <th>Compa&ntilde;ia</th>
+                  <th>Puesto</th>                         
+              </tr>
+          </thead>
+          <tbody>                               
+          <t:if test="muestraTabla">                      
+              <tr t:type="Loop" t:source="listaMapaPersona" t:value="mapaHistorico">
+                  <td><t:actionlink t:id="detalleHistorico" class="linkTabla" context="mapaHistorico.get('id_historial')">${mapaHistorico.get('fecha_mod')}</t:actionlink></td>
+                  <td>${getNombreCia(mapaHistorico.get('id_cia'))}</td>
+                  <td>${mapaHistorico.get('puesto')}</td>
+              </tr>
+              <p:else>
+                  <tr>
+                      <td>No hay ning&uacute;n resultado</td>
+                  </tr>
+              </p:else>
+          </t:if>
+          </tbody>                                          
+      </table>  
+    </div>
+    </div>        
+    <script>
+    jQuery(document).ready(function() {
+      makeSublist('padre','hijo', false, '');
+      jQuery("#wrapperTablas").hide();
+      jQuery("#baseHistorico").hide()
+      jQuery(".btnHistorico").click(function(){
+        jQuery("#wrapperTablas").show();
+        jQuery("#baseHistorico").show();
+      });
+      jQuery("#regresaH").click(function(){
+      jQuery("#wrapperTablas").hide();
+        jQuery("#baseHistorico").hide();
+      });
+    });
+    </script>
+    <style>
+      #baseHistorico{
+        background: #585858;        
+        position: absolute;
+        width: 95%;
+        top: 200px;
+        right: 30px;
+      }
+    </style>
+</span>

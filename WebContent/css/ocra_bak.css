@@ -1,0 +1,130 @@
+td 				{font-family: arial; font-size: 12px; color: #000000}
+
+.tabla1 		{padding-top: 3px; padding-right: 3px; padding-bottom: 3px; padding-left: 3px; background-color: #CCCCCC}
+.tabla2 		{padding-top: 3px; padding-right: 3px; padding-bottom: 3px; padding-left: 3px; background-color: #E0E0E0;}
+
+
+.menu 			{font: bold 13px arial; color: #333333}
+A.menu:link 
+	{font: bold 13px arial; color: #333333; text-decoration: none}
+A.menu:visited 
+	{font: bold 13px arial; color: #333333; text-decoration: none}
+A.menu:hover 
+	{font: bold 13px arial; color: #BC363D; text-decoration: underline}
+
+
+.txtB 			{font: bold 12px arial}
+A.txtB:link 
+	{font: bold 12px arial; color: #000000; text-decoration: underline}
+A.txtB:visited 
+	{font: bold 12px arial; color: #333333; text-decoration: underline}
+A.txtB:hover 
+	{font: bold 12px arial; color: #BC363D; text-decoration: underline}
+
+.txtBlancoB 	{font: bold 12px arial; color: #FFFFFF}
+
+
+.headerTabla 			{font-family: arial; font-size: 14px; font-weight: bold; color: #FFFFFF; background-color: #5D6FD5}
+.headerTablaPaquetes	{font-family: arial; font-size: 14px; font-weight: bold; color: #FFFFFF; background-color: #9BA5EA}
+.headerAgregar 			{font-family: arial; font-size: 14px; font-weight: bold; color: #333333; background-color: #ECEEFB}
+.headerTablaError			{font-family: arial; font-size: 14px; font-weight: bold; color: #FFFFFF; background-color: #FF0000}
+.headerTablaOK			{font-family: arial; font-size: 14px; font-weight: bold; color: #FFFFFF; background-color: #97B9A8}
+
+.resultadoHeader 		{font-family: arial; font-size: 14px; font-style: italic; font-weight: bold; color: #FFFFFF; background-color: #FF9900}
+
+.subTitulito 	{font-family: verdana; font-size: 12px; color: #787777; font-weight: bold}
+.tablepager 	{font-family: verdana; font-size: 12px; color: #FFFFFF; font-weight: bold}
+
+.textarea100 {
+	font: 11px arial, sans-serif; 
+	width: 100px; 
+	color: #000000; 
+	background-color: #FFFFFF; 
+	border-right: #D4D0C8 1px solid; 
+	padding-right: 2px; 
+	border-top: #808080 1px solid; 
+	padding-top: 1px; 
+	border-bottom: #D4D0C8 1px solid; 
+	padding-bottom: 1px; 
+	border-left: #808080 1px solid; 
+	padding-left: 2px}
+	
+.textarea325 {
+	font: 11px arial, sans-serif; 
+	width: 325px; 
+	color: #000000; 
+	background-color: #FFFFFF; 
+	border-right: #D4D0C8 1px solid; 
+	padding-right: 2px; 
+	border-top: #808080 1px solid; 
+	padding-top: 1px; 
+	border-bottom: #D4D0C8 1px solid; 
+	padding-bottom: 1px; 
+	border-left: #808080 1px solid; 
+	padding-left: 2px}
+
+.tablaMenuMini 		{height: 35px; padding-top: 2px; padding-right: 2px; padding-bottom: 2px; padding-left: 2px}
+.txtHeaderBlanco 	{font: bold 14px arial; color: #FFFFFF}
+
+tr.even { background-color: lightblue; }
+tr.odd { background-color: lightgray; }
+
+.shadow {font: bold 12px arial; color:#FFFFFF; text-decoration: none; text-align: center; text-transform: uppercase; height: 1em; filter: Shadow(Color=#3F1214, Direction=135, Strength=2);}
+
+.btnNegro 	{font: bold 12px arial; color:#000000; text-decoration: none; }
+.btnNegroB 	{font: bold 12px arial; color:#000000; text-decoration: none; text-transform: uppercase}
+
+.btnBlanco 	{font: bold 12px arial; color:#FFFFFF; text-decoration: none; }
+.btnBlancoB 	{font: bold 12px arial; color:#FFFFFF; text-decoration: none; text-transform: uppercase}
+A.btnBlancoB:link 
+	{font: bold 12px arial; color:#FFFFFF; text-decoration: underline; text-transform: uppercase}
+A.btnBlancoB:visited 
+	{font: bold 12px arial; color:#FFFFFF; text-decoration: underline; text-transform: uppercase}
+A.btnBlancoB:hover 
+	{font: bold 12px arial; color:#FFFFFF; text-decoration: none; text-transform: uppercase}
+	
+.marcote {
+	position:relative; /* Position is declared "relative" to gain control of stacking order (z-index). */
+	width:95%;
+	margin:10px 10px 10px 10px;
+	border:1px dashed #ccc;
+	background-color:#eee;
+	padding:5px 5px 5px 5px;
+	clear: both;
+}
+
+.mensaje {
+	position:relative;
+	width:95%;
+	margin:10px 10px 10px 10px;
+	border:1px solid #9BA5EA;
+	background-color:#fff;
+	padding:5px 5px 5px 5px;
+	clear: both;
+}
+
+.marcoteSin {
+	width:95%;
+	margin:10px 10px 10px 10px;
+	border:1px dashed #ccc;
+	background-color:#eee;
+	padding:0 0 0 20;
+	clear: both;
+}
+
+.numero		{font: bold 36px arial; color: #202020}
+.sTxtAzul 	{font: 11px arial; color: #5D6FD5}
+.sTxtRojo 	{font: 11px arial; color: #CB3A42}
+.txtMensaje	{font: bold 18px arial; color: #202020}
+
+.trSolicitud { background-color: #FFFFFF; text-color:#000000 }
+.trTituloSolicitud { background-color: #000000; text-color:#FFFFFF }
+
+th { background-color: lightgray; text-color:#FFFFFF }
+
+ .icon {
+	background-color: #222222;
+	background-image: url(/siab/img/bg_circle.gif);
+	background-repeat: no-repeat;
+}
+

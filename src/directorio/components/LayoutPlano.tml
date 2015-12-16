@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+    xmlns:p="tapestry:parameter">
+    <head>
+    	<script src="/sapautos/js/jQuery.js"/>
+    	<script>
+        	$.noConflict();	
+            document.observe("dom:loaded", function() {
+            	document.getElementById('loading').style.display='none';
+        	
+                Ajax.Responders.register({
+                	  onCreate: function() {
+                    	document.getElementById('loading').style.display='';
+                	  },
+                	  onComplete: function() {
+                    	document.getElementById('loading').style.display='none';
+                	  }
+                	});	
+        	});	
+    	</script>
+    </head>
+    <body marginwidth="0" marginheight="0" leftmargin="0" topmargin="0" bgcolor="#FFFFFF">
+        <div class="headerPagina">
+            <a href="/sap"><img alt="Sap" border="0" src="/sapautos/graphics/SAPLogo.gif" width="388" height="75"/></a>
+        	<br/> 
+        <img src="/sapautos/graphics/menuLeft.gif" width="51" height="21" align="left"/>
+        </div> 
+		<div class="content">
+			<t:body/>
+		</div>
+</body> 
+</html>  

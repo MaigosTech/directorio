@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<span t:type="layout" title="Operaciones Administrativas CODIS"
+  xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+  xmlns:p="tapestry:parameter">
+<div class="subHeaderAzul"><p class="titleForm2 shadow">Cat&aacute;logos</p>
+	<t:pagelink page="admindirectorio/admincatalogo"><input type="button" class="btnRegresar" /></t:pagelink>
+	</div>
+<div class="tableTop_orange"></div>
+<div id="catalogosWrap">
+	<div id="bgTablasCatalogos">	
+	<t:form >
+		<t:submit
+			 t:id="agregar"
+             class="btnAgregar"
+             value="Agregar"
+             alt="Agregar"
+             border="0"/>
+	</t:form>
+	<table class="agregaUsuario2">
+	    <thead>
+	        <tr>
+	            <th>Id</th>
+	            <th>Descripci&oacute;n</th>		            
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <tr t:type="Loop" t:source="listaEntidades" t:value="entidad">
+	            <td>${entidad.id}</td>
+	            <td><t:actionlink t:id="modificaCatalogo" class="linkTabla" context="[entidad.id, entidad.nombre]">${entidad.nombre}</t:actionlink></td>		            
+	        </tr>
+	    </tbody>
+	</table>
+</div>
+</div>
+<div class="tableBottom_orange"></div>	
+</span>

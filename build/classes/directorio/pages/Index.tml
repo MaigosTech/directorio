@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html t:type="layout" title="SAP" 
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+	xmlns:p="tapestry:parameter">
+ 
+ <div class="contenido2">
+ 	<t:if test="usuario">
+    	<div class="subHeaderAzul">Bienvenido al directorio AMIS ${usuario.login}</div> 
+	</t:if>
+    <t:if test="mensaje">
+        <p>
+            Ha ocurrido un error en el sistema:
+            <strong>${mensaje}</strong><br/><br/>
+            Por favor rep&oacute;rtelo al &aacute;rea administrativa de SAP, especificando los pasos que sigui&oacute;<br/>
+            para encontrar el error y cu&aacute;l era la respuesta esperada.
+        </p>
+    </t:if>	
+    <t:if test="mensajeCambioPassword">
+        <p>
+            <font color="red"><strong><t:outputRaw value="mensajeCambioPassword"/></strong></font><br/><br/>
+        </p>
+    </t:if>	
+ </div>
+</html>

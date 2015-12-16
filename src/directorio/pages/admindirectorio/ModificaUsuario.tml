@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<span t:type="layout" title="Operaciones Administrativas CODIS"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+	xmlns:p="tapestry:parameter">
+	<div class="subHeaderAzul"><p class="titleForm2 shadow">Modifica Datos Usuario Directorio</p></div>
+		<t:form t:id="modificaDatos">
+			<div class="tableTop_orange"></div>
+	    	<table width="100%" border="0" cellpadding="0" cellspacing="0" id="modificaDatosUsuario"> 
+	    	<tr>
+	    	<td> 			      
+	            <div class="tableTop"></div> 	
+	    		<table id="tablaInterna">
+	    		<t:if test="errorTmp">
+	    			<tr>
+	        			<td colspan="4" align="center">
+	    					<p><font color="red">No se puede proceder a la modificaci&oacute;n.<br/>
+	    						El sistema ha reportado el(los) siguiente(s) error(es):</font></p>
+	    						<ul>
+									<li>${errorTmp}</li>
+	    						</ul>
+	            		</td>
+	        		</tr>
+	    		</t:if>
+				<tr>
+	    			<th>
+	    				Usuario:				
+	    			</th>
+	    			<td colspan="3">
+	    				<t:TextField t:id="usuario" t:value="usuario.login" 
+	    					onBlur="javascript:this.value=this.value.toUpperCase();"/>
+				    </td>
+	    		</tr>
+	    		<tr>
+	    			<th>
+	    				Contrase&ntilde;a:				
+	    			</th>
+	    			<td colspan="3">
+	    				<t:TextField t:value="usuario.pass"
+	    					t:id="contrasena" onBlur="javascript:this.value=this.value.toUpperCase();" />
+					</td>
+				</tr>
+				<tr>
+	    			<th>
+	    				Confirma Contrase&ntilde;a:				
+	    			</th>
+	    			<td colspan="3">
+	    				<t:TextField t:value="usuario.pass"
+	    					t:id="recontrasena" onBlur="javascript:this.value=this.value.toUpperCase();" />
+					</td>
+				</tr>
+				<tr>
+	    			<th>
+	    				Asigna los roles que tendr&aacute; el usuario:			
+	    			</th>
+	    			<td colspan="2">
+    					<select t:type="select" 
+	            					model="listaRolesSelectionModel" 
+	            					encoder="listaRolesValueEncoder"
+	            					blankOption="NEVER"
+	            					t:value="usuario.rol"/>
+                	</td>	    			    			
+				</tr>
+	        	<tr>
+	        		<td colspan="4" align="right">
+	        			<br/>	       
+	        			<t:submit 
+	            			t:id="actualizaUsuario"
+	            			class="boton"
+	            			value="Actualiza"
+	        				alt="Crear" 
+	        				border="0"/>	            			
+	        		</td>
+	        	</tr>
+	    	</table>
+	    	</td></tr></table>
+	    	<div class="tableBottom_orange"></div>
+		</t:form>
+
+</span>

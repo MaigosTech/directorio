@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<span t:type="layout" title="Operaciones Administrativas CODIS"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+	xmlns:p="tapestry:parameter" >
+<body>
+	<div class="subHeaderAzul">
+	<p class="titleForm2 shadow">Cat&aacute;logos</p>
+	<t:pagelink page="catalogos/catalogo" context="idEntidad" ><input type="button" class="btnRegresar" /></t:pagelink>
+	</div>
+	<div class="tableTop_orange"></div>
+	<div id="catalogosWrap">
+	<div id="bgTablasCatalogos">
+	<t:if test="agrega">
+		<t:form t:id="formCatalogoAgregar" class="form">
+			<table id="tablaInterna" class="agregaUsuario">
+				<tr>
+					<th>Descripci&oacute;n</th>
+					<td>
+					<t:TextField      
+							name="nuevoNombre"
+	                        t:id="nuevoNombre"							
+							maxlength="25" />
+					</td>
+				</tr>				
+			</table>
+			<div id="botonesCatalogo">
+				<t:submit							                                      
+	                     class="btnAgregar"
+	                     value="Agregar"
+	                     alt="Agregar" 
+	                     border="0"/>		            	
+			</div>      
+		</t:form>
+	</t:if>
+	<t:if test="modifica">
+		<t:form t:id="formCatalogoModificar" class="form">
+			<table id="tablaInterna" class="agregaUsuario">
+				<tr>
+					<th>Descripci&oacute;n</th>
+					<td>
+					<t:TextField      
+							name="nombre"
+	                        t:id="nombre"
+							value="entidad?.nombre"
+							maxlength="25" />
+					</td>
+				</tr>				
+			</table>
+			<div id="botonesCatalogo">
+				<t:submit
+						 t:id="modificar"                                     
+	                     class="btnEditar"
+	                     value="Modificar"
+	                     alt="Modificar" 
+	                     border="0"/>
+	            <t:submit
+	            		 t:id="eliminar"                                     
+	                     class="btnEliminar"
+	                     value="Eliminar"
+	                     alt="Eliminar" 
+	                     border="0"/>	
+			</div>      
+		</t:form>
+	</t:if>
+	<t:if test="!muestra">			
+		<ul>
+			<li><t:pagelink page="catalogos/catalogo" t:context="1">RAMOS</t:pagelink></li>
+			<li><t:pagelink page="catalogos/catalogo" t:context="10">&Aacute;REA</t:pagelink></li>
+			<li><t:pagelink page="catalogos/catalogo" t:context="7">CANAL_VENTA</t:pagelink></li>
+			<li><t:pagelink page="catalogos/catalogo" t:context="5">CAPITAL ORIGEN</t:pagelink></li>
+			<li><t:pagelink page="catalogos/catalogo" t:context="4">CAPITAL SOCIAL</t:pagelink></li>
+			<li><t:pagelink page="catalogos/catalogo" t:context="12">NIVEL PERSONA</t:pagelink></li>
+			<li><t:pagelink page="catalogos/catalogo" t:context="16">ROL</t:pagelink></li>
+			<li><t:pagelink page="catalogos/catalogo" t:context="6">TIPO MERCADO</t:pagelink></li>
+			<li><t:pagelink page="catalogos/catalogo" t:context="11">PERSONA</t:pagelink></li>
+		</ul>
+	</t:if>
+	</div>
+	</div>
+	<div class="tableBottom_orange"></div>
+</body>
+</span>

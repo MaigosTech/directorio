@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements. See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership. The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License. You may obtain a copy of the License at
+ 
+  http://www.apache.org/licenses/LICENSE-2.0
+ 
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied. See the License for the
+  specific language governing permissions and limitations
+  under the License.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:simple="http://cxf.apache.org/simple"
+      xmlns:soap="http://cxf.apache.org/bindings/soap"
+      xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://cxf.apache.org/bindings/soap http://cxf.apache.org/schemas/configuration/soap.xsd
+http://cxf.apache.org/simple http://cxf.apache.org/schemas/simple.xsd">
+
+  <simple:server id="emisionservice" serviceClass="sap.ws.Emision" address="/emision">
+  	<simple:serviceBean>
+  		<bean class="sap.ws.EmisionImpl" />
+  	</simple:serviceBean>
+  </simple:server>
+  <simple:server id="siniestroservice" serviceClass="sap.ws.Siniestro" address="/siniestro">
+  	<simple:serviceBean>
+  		<bean class="sap.ws.SiniestroImpl" />
+  	</simple:serviceBean>
+  </simple:server>
+  <simple:server id="prevencionservice" serviceClass="sap.ws.Prevencion" address="/prevencion">
+  	<simple:serviceBean>
+  		<bean class="sap.ws.PrevencionImpl" />
+  	</simple:serviceBean>
+  </simple:server>
+  <simple:server id="rechazoservice" serviceClass="sap.ws.Rechazo" address="/rechazo">
+  	<simple:serviceBean>
+  		<bean class="sap.ws.RechazoImpl" />
+  	</simple:serviceBean>
+  </simple:server>
+  <simple:server id="consultaservice" serviceClass="sap.ws.Consulta" address="/consulta">
+  	<simple:serviceBean>
+  		<bean class="sap.ws.ConsultaImpl" />
+  	</simple:serviceBean>
+  </simple:server>
+  <simple:server id="alertaservice" serviceClass="sap.ws.Alerta" address="/alerta">
+  	<simple:serviceBean>
+  		<bean class="sap.ws.AlertaImpl" />
+  	</simple:serviceBean>
+  </simple:server>
+  <simple:server id="coincidencia1service" serviceClass="sap.ws.Coincidencia" address="/coincidencia">
+  	<simple:serviceBean>
+  		<bean class="sap.ws.CoincidenciaImpl" />
+  	</simple:serviceBean>
+  </simple:server>
+</beans>

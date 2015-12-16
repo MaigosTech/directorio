@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<span t:type="layout" title="Operaciones Administrativas CODIS"
+    xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+    xmlns:p="tapestry:parameter">       
+        <div class="subHeaderAzul"><p class="titleForm2 shadow">Datos Usuario Directorio</p> <t:pagelink page="consulta/consulta"><input type="button" class="btnRegresar" /></t:pagelink></div>
+        <t:form t:id="formDatosIniciales">  
+            <table width="100%" border="0" cellpadding="0" cellspacing="0"> 
+            <tr>
+            <td>                  
+                <div class="tableTop_orange"></div>    
+                <table  width="100%" border="0" cellpadding="0" cellspacing="0" id="tablaInterna" class="agregaUsuario">
+                <t:if test="errorTmp">
+                    <tr>
+                        <td colspan="4" align="center">
+                            <p><font color="red">No se puede proceder a la modificaci&oacute;n.<br/>
+                                El sistema ha reportado el(los) siguiente(s) error(es):</font></p>
+                                <ul>
+                                    <li>${errorTmp}</li>
+                                </ul>
+                        </td>
+                    </tr>
+                </t:if>
+                <tr>
+                    <th>
+                        Persona AMIS:           
+                    </th>
+                    <td colspan="3">
+                        <select t:type="select" 
+                                    model="listaPersonasSelectionModel" 
+                                    encoder="listaPersonasValueEncoder"
+                                    blankOption="NEVER"
+                                    t:value="persona"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Usuario:                
+                    </th>
+                    <td colspan="3">
+                        <t:TextField t:id="loginUsuario" t:value="loginUsuario" t:validate="required,minlength=3" onBlur="javascript:this.value=this.value.toUpperCase();" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Contrase&ntilde;a:              
+                    </th>
+                    <td colspan="3">
+                        <t:PasswordField t:value="contrasena"
+                            t:id="contrasena" t:validate="required,minlength=3" onBlur="javascript:this.value=this.value.toUpperCase();" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Confirma Contrase&ntilde;a:             
+                    </th>
+                    <td colspan="3">
+                        <t:PasswordField t:value="recontrasena"
+                            t:id="recontrasena" t:validate="required,minlength=3" onBlur="javascript:this.value=this.value.toUpperCase();" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Asigna los roles que tendr&aacute; el usuario:          
+                    </th>
+                    <td colspan="2">
+                        <select t:type="select" 
+                                    model="listaRolesSelectionModel" 
+                                    encoder="listaRolesValueEncoder"
+                                    blankOption="NEVER"
+                                    t:value="rol"/>
+                    </td>                                   
+                </tr>
+                <tr>
+                    <th>
+                        Asigna el &aacute;rea a la que tiene acceso este usuario:               
+                    </th>
+                    <td colspan="2">
+                        <select t:type="select" 
+                                    model="listaAreasSelectionModel" 
+                                    encoder="listaAreasValueEncoder"
+                                    blankOption="NEVER"
+                                    t:value="area"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Estado:             
+                    </th>
+                    <td colspan="2">
+                        <t:select t:id="estado" model="literal: A=Activo, I=Inactivo" blankOption="NEVER" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" align="right">
+                        <br/>          
+                        <t:submit 
+                            t:id="creaUsuario"
+                            class="btnAgregar"
+                            value="Crear"
+                            alt="Crear" 
+                            border="0" style="margin:0 auto;"/>                        
+                                                                          
+                    </td>                    
+                </tr>
+            </table>
+            </td></tr></table>
+            <div class="tableBottom_orange"></div>
+        </t:form>        
+        <div class="subHeaderAzul"><p class="titleForm2 shadow">Busca Usuario Directorio</p></div>
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    
+                    <table  width="100%" border="0" cellpadding="0" cellspacing="0" class="tablaInterna">
+                        <t:if test="errorTmp">
+                        <tr>
+                            <td colspan="4" align="center">
+                                <p><font color="red">No se puede proceder a la busqueda.<br/>
+                                    El sistema ha reportado el(los) siguiente(s) error(es):</font></p>
+                                    <ul>
+                                        <li>${errorTmp}</li>
+                                    </ul>
+                            </td>
+                        </tr>
+                        </t:if>
+                        <tr>
+                            <table  width="100%" border="0" cellpadding="0" cellspacing="0" id="tablaUsuarios" class="agregaUsuario2">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Nombre</th>
+                                        <th>Apellido</th>
+                                        <th>Login</th>
+                                        <th>Compa&ntilde;ia</th>
+                                        <th>Area</th>
+                                        <th>Puesto</th>
+                                        <th>Rol</th>
+                                        <th>Fecha Alta</th>
+                                        <th>Borrar</th>
+                                    </tr>
+                                </thead>                               
+                                <tbody>
+                                    <t:if test="usuarios">
+                                        <tr t:type="Loop" t:source="usuarios" t:value="usuariod">
+                                            <td>${usuariod.persona.idPersona}</td>
+                                            <td>${usuariod.persona.nombre}</td>
+                                            <td><t:actionlink t:id="modifica" class="linkTabla" context="usuariod.persona.idPersona">${usuariod.persona.paterno}</t:actionlink></td>
+                                            <td>${usuariod.login}</td>
+                                            <td>${usuariod.persona.cia.nombre}</td>
+                                            <td>${usuariod.persona.area.nombre}</td>
+                                            <td>${usuariod.persona.puesto}</td>
+                                            <td>${usuariod.rol.nombre}</td>
+                                            <td>${usuariod.fechaAlta}</td>
+                                            <td><img src="/directorioamis/img/btnBorrar.png" alt="borrar" />
+                                            </td>
+                                        </tr>
+                                    <p:else>
+                                        <tr>No hay Usuarios registrados</tr>
+                                    </p:else>
+                                    </t:if>                                    
+                                </tbody>
+                            </table>            
+                        </tr>
+                    </table>
+                </td>
+            </tr>                           
+        </table>
+          
+</span>

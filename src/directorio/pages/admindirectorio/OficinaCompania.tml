@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<span t:type="layout" title="Operaciones Administrativas CODIS"
+  xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+  xmlns:p="tapestry:parameter">
+  <div class="headerGris">${titulo}</div>
+  <div class="subHeaderAzul"><p class="titleForm2 shadow">Oficina</p></div>
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">        
+        <t:if test="getRol('admindirectorio')">
+          <t:if test="getAccion('agrega')">
+            <tr>                    
+              <div class="tableTop_blue"></div>
+              <t:form t:id="formDatosIniciales"> 
+                <table id="tablaInterna" class="agregaOficina">
+                  <t:if test="errorTmp">
+                  <tr>
+                      <td colspan="4" align="center">
+                      <p><font color="red">No se puede proceder a la modificaci&oacute;n.<br/>
+                        El sistema ha reportado el(los) siguiente(s) error(es):</font></p>
+                        <ul>
+                        <li>${errorTmp}</li>
+                        </ul>
+                        </td>
+                    </tr>
+                  </t:if>
+                  <tr>
+                      <th>
+                        Compa&ntilde;ia     
+                      </th>
+                      <td colspan="3">
+                        ${getNombreCiaFromId(idCia)}
+                      </td>
+                  </tr>
+                  <tr>
+                      <th>
+                        Descripci&oacute;n:
+                      </th>
+                      <td colspan="3">
+                        <t:TextField t:id="descripcion" t:value="descripcion" t:validate="required,minlength=3" 
+                        	onBlur="javascript:this.value=this.value.toUpperCase();"/>
+                      </td>
+                  </tr>            
+                  <tr>
+                      <th>
+                        Calle:
+                      </th>
+                      <td colspan="3">
+                        <t:TextField t:id="calle" t:value="calle" t:validate="required,minlength=3" 
+                        	onBlur="javascript:this.value=this.value.toUpperCase();"/>
+                      </td>
+                  </tr>
+                  <tr>
+                      <th>
+                        Colonia:
+                      </th>
+                      <td colspan="3">
+                        <t:TextField t:id="colonia" t:value="colonia" t:validate="required,minlength=3" 
+                        	onBlur="javascript:this.value=this.value.toUpperCase();"/>
+                      </td>
+                  </tr>
+                  <tr>
+                      <th>
+                        C&oacute;digo Postal:
+                      </th>
+                      <td colspan="3">
+                        <t:TextField t:id="cp" t:value="cp" t:validate="required,minlength=3" 
+                        	onBlur="javascript:this.value=this.value.toUpperCase();"/>
+                      </td>
+                  </tr>
+                  <tr>
+                      <th>
+                        Tel&eacute;fono:
+                      </th>
+                      <td colspan="3">
+                        <t:TextField t:id="telefono" t:value="telefono" t:validate="required,minlength=3" />
+                      </td>
+                  </tr>
+                  <tr>
+                    <td colspan="4" align="right">
+                      <t:submit 
+                          t:id="agregaOficina"
+                          class="boton"
+                          value="Agrega"
+                        alt="Actualiza" 
+                        border="0"/>                    
+                    </td>            
+                  </tr>
+                </table>
+              </t:form>
+              
+            </tr>
+            </t:if>
+            <t:if test="getAccion('modifica')">
+            <tr>                    
+              <div class="tableTop_blue"></div>
+              <t:form t:id="formModifica"> 
+                <table id="tablaInterna" class="agregaOficina">
+                  <t:if test="errorTmp">
+                  <tr>
+                      <td colspan="4" align="center">
+                      <p><font color="red">No se puede proceder a la modificaci&oacute;n.<br/>
+                        El sistema ha reportado el(los) siguiente(s) error(es):</font></p>
+                        <ul>
+                        <li>${errorTmp}</li>
+                        </ul>
+                        </td>
+                    </tr>
+                  </t:if>
+                  <tr>
+                      <th>
+                        Compa&ntilde;ia     
+                      </th>
+                      <td colspan="3">
+                        ${getNombreCiaFromId(idCia)}
+                      </td>
+                  </tr>
+                  <tr>
+                      <th>
+                        Descripci&oacute;n:
+                      </th>
+                      <td colspan="3">
+                        <t:TextField t:value="oficina.nombre" t:validate="required,minlength=3" 
+                        	onBlur="javascript:this.value=this.value.toUpperCase();"/>
+                      </td>
+                  </tr>            
+                  <tr>
+                      <th>
+                        Calle:
+                      </th>
+                      <td colspan="3">
+                        <t:TextField t:value="oficina.calle" t:validate="required,minlength=3" 
+                        	onBlur="javascript:this.value=this.value.toUpperCase();"/>
+                      </td>
+                  </tr>
+                  <tr>
+                      <th>
+                        Colonia:
+                      </th>
+                      <td colspan="3">
+                        <t:TextField t:value="oficina.colonia" t:validate="required,minlength=3" 
+                        	onBlur="javascript:this.value=this.value.toUpperCase();"/>
+                      </td>
+                  </tr>
+                  <tr>
+                      <th>
+                        C&oacute;digo Postal:
+                      </th>
+                      <td colspan="3">
+                        <t:TextField t:value="oficina.cp" t:validate="required,minlength=3" 
+                        	onBlur="javascript:this.value=this.value.toUpperCase();"/>
+                      </td>
+                  </tr>
+                  <tr>
+                      <th>
+                        Tel&eacute;fono:
+                      </th>
+                      <td colspan="3">
+                        <t:TextField t:value="oficina.telefono" t:validate="required,minlength=3" />
+                      </td>
+                  </tr>
+                  <tr>
+                    <td colspan="4" align="right">
+                      <t:submit 
+                          t:id="modificaOficina"
+                          class="boton"
+                          value="Agrega"
+                        alt="Actualiza" 
+                        border="0"/>                    
+                    </td>            
+                  </tr>
+                </table>
+              </t:form>
+              
+            </tr>
+            </t:if>
+        <p:else>
+          <tr>                    
+              <div class="tableTop_blue"></div>
+              <t:form t:id="formConsulta"> 
+                <table id="tablaInterna" class="agregaOficina">
+                  <t:if test="errorTmp">
+                  <tr>
+                      <td colspan="4" align="center">
+                      <p><font color="red">No se puede proceder a la modificaci&oacute;n.<br/>
+                        El sistema ha reportado el(los) siguiente(s) error(es):</font></p>
+                        <ul>
+                        <li>${errorTmp}</li>
+                        </ul>
+                        </td>
+                    </tr>
+                  </t:if>
+                  <tr>
+                      <th>
+                        Compa&ntilde;ia     
+                      </th>
+                      <td colspan="3">
+                        ${getNombreCiaFromId(idCia)}
+                      </td>
+                  </tr>
+                  <tr>
+                      <th>
+                        Descripci&oacute;n:
+                      </th>
+                      <td colspan="3">
+                        ${oficina.nombre}
+                      </td>
+                  </tr>            
+                  <tr>
+                      <th>
+                        Calle:
+                      </th>
+                      <td colspan="3">
+                        ${oficina.calle}
+                      </td>
+                  </tr>
+                  <tr>
+                      <th>
+                        Colonia:
+                      </th>
+                      <td colspan="3">
+                        ${oficina.colonia}
+                      </td>
+                  </tr>
+                  <tr>
+                      <th>
+                        C&oacute;digo Postal:
+                      </th>
+                      <td colspan="3">
+                        ${oficina.cp}
+                      </td>
+                  </tr>
+                  <tr>
+                      <th>
+                        Tel&eacute;fono:
+                      </th>
+                      <td colspan="3">
+                        ${oficina.telefono}
+                      </td>
+                  </tr>
+                  <tr>
+                    <td colspan="4" align="right">
+                      <t:submit 
+                          t:id="regresar"
+                          class="boton"
+                          value="Regresar"
+                        alt="Regresar" 
+                        border="0"/>                    
+                    </td>            
+                  </tr>
+                </table>
+              </t:form>
+            </tr>
+        </p:else>
+        </t:if>                            
+        </table>
+        <div class="tableBottom_blue"></div>
+</span>

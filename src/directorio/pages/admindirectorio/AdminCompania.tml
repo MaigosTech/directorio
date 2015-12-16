@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<span t:type="layout" title="Operaciones Administrativas CODIS"
+    xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+    xmlns:p="tapestry:parameter">
+    <div id="detalleCia">
+        <t:form t:id="formDatosIniciales" class="form">
+            <p class="titleForm shadow">Compa&ntilde;ias</p>            
+            <table id="detalleDatos">
+            <t:if test="errorTmp">
+                <tr>
+                    <td colspan="4" align="center">
+                        <p><font color="red">No se puede proceder a la modificaci&oacute;n.<br/>
+                            El sistema ha reportado el(los) siguiente(s) error(es):</font></p>
+                            <ul>
+                                <li>${errorTmp}</li>
+                            </ul>
+                    </td>
+                </tr>
+            </t:if>
+                <tr>
+                    <th>
+                        Raz&oacute;n Social         
+                    </th>
+                    <td>
+                        <t:TextField t:value="razon" t:validate="required,minlength=3"
+                            onBlur="javascript:this.value=this.value.toUpperCase();" />
+                    </td>
+                    <th>
+                        Certificado Aportaci&oacute;n Patrimonial
+                    </th>
+                    <td>
+                        <t:select t:id="certificado" model="literal: 1=Si, 0=No" blankOption="NEVER" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Nombre corto:
+                    </th>
+                    <td>
+                        <t:textField t:value="nombrec" t:validate="required,minlength=3"
+                            onBlur="javascript:this.value=this.value.toUpperCase();" />
+                    </td>
+                    <th>
+                        Capital Origen
+                    </th>
+                    <td>
+                        <t:select   model="listaCapitalOSelectionModel" 
+                                    encoder="listaCapitalOValueEncoder"
+                                    blankOption="NEVER"
+                                    t:value="capitalo" />
+                    </td>
+                </tr>
+                <tr>
+                    <th rowspan="4" valign="top">
+                        Ramos:
+                    </th>
+                    <td rowspan="4">
+                        <ul class="listaCheck">
+                            <li><t:checkbox t:id="autos" /> <t:label for="autos" /></li>
+                            <li><t:checkbox t:id="vida" /> <t:label for="vida"/></li>
+                            <li><t:checkbox t:id="aye" /> <t:label for="aye"/></li>
+                            <li><t:checkbox t:id="danos" /> <t:label for="danos" >Da&ntilde;os</t:label></li>
+                        </ul>
+                        <ul class="listaCheck">
+                            <li><t:checkbox t:id="reaseg" /> <t:label for="reaseg" >Reaseguradora</t:label></li>
+                            <li><t:checkbox t:id="pension" /> <t:label for="pension" >Pensi&oacute;n</t:label></li>
+                            <li><t:checkbox t:id="salud" /> <t:label for="salud"/></li>
+                        </ul>
+                    </td>
+                    <th>
+                        Grupo Financiero
+                    </th>
+                    <td>
+                        <t:TextField t:value="grupof" t:validate="required,minlength=3"
+                            onBlur="javascript:this.value=this.value.toUpperCase();" />                        
+                    </td>
+                </tr>
+                <tr>
+                  <th>
+                        Tipo de Mercado
+                    </th>
+                    <td>
+                        <t:select model="listaTipoMSelectionModel" 
+                                  encoder="listaTipoMValueEncoder"
+                                  blankOption="NEVER"
+                                  t:value="tipom" />
+                    </td>
+                </tr>
+                <tr>
+                  <th>
+                        Canal de Ventas
+                    </th>
+                    <td>
+                        <t:select model="listaCanalVSelectionModel" 
+                                  encoder="listaCanalVValueEncoder"
+                                  blankOption="NEVER"
+                                  t:value="canal" />
+                    </td>
+                </tr>
+                <tr>
+                  <th>
+                        Capital Social
+                    </th>
+                    <td>
+                        <t:select model="listaCapitalSSelectionModel" 
+                                  encoder="listaCapitalSValueEncoder"
+                                  blankOption="NEVER"
+                                  t:value="capitals" />
+                    </td>
+                </tr>
+                
+                <tr>
+                    <th>
+                        Fecha fundaci&oacute;n:             
+                    </th>
+                    <td>
+                        <t:DateField t:value="fechaf"
+                            t:id="fechaf" t:validate="required,minlength=3"/>
+                    </td>
+                    <th>
+                        Estado:
+                    </th>
+                    <td>
+                        <t:select t:id="estado" model="literal: A=Activo, I=Inactivo" blankOption="NEVER" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        P&aacute;gina web:          
+                    </th>
+                    <td>
+                        <t:textField t:value="web" t:validate="required,minlength=3" />
+                    </td>
+                    <th>
+                        Logo:   
+                    </th>
+                    <td rowspan="2" valign="top">                        
+                        <t:errors/>
+                        <input t:type="upload" t:id="logo" t:value="logo" validate="required"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Afiliada AMIS
+                    </th>
+                    <td>
+                        <t:select t:id="afiliada" model="literal: 1=Si, 0=No" blankOption="NEVER" />
+                    </td>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr>
+                    <th>
+                        Acciones Inmobiliaria AMIS
+                    </th>
+                    <td>
+                        <t:select t:id="acciones" model="literal: 1=Si, 0=No" blankOption="NEVER" />
+                    </td>
+                    <th>
+                        <t:submit 
+                            t:id="creaCompania"
+                            class="btnAgregar"
+                            value="Crear"
+                            alt="Crear" 
+                            border="0"/>                      
+                    </th>
+                    <td>&nbsp;</td>
+                </tr>                
+
+            </table>            
+        </t:form>
+    </div>
+</span>

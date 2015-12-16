@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<span t:type="layout" title="Operaciones Administrativas CODIS"
+  xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+  xmlns:p="tapestry:parameter">
+
+  <div id="detalleCia">
+    <t:form t:id="formDatosIniciales" class="form">
+            <p class="titleForm shadow">Compañias</p>            
+            <t:pagelink page="consulta/Consulta" style="display:block; float:right; margin-top:35px; margin-right:30px;">
+                <img src="/directorioamis/img/btnRegresar.png" alt="historico"/>
+            </t:pagelink>
+            <div class="btnOficina"><img src="/directorioamis/img/btnVerOficinas.png"  alt="verOficinas"/></div><div class="btnHistorico"><img src="/directorioamis/img/btnHistorico.png"  alt="historico"/></div>
+            <table id="detalleDatos">
+            <t:if test="errorTmp">
+            <tr>
+                <td colspan="4" align="center">
+                <p><font color="red">No se puede proceder a la modificaci&oacute;n.<br/>
+                  El sistema ha reportado el(los) siguiente(s) error(es):</font></p>
+                  <ul>
+                  <li>${errorTmp}</li>
+                  </ul>
+                  </td>
+              </tr>
+            </t:if>
+            <t:if test="getRol('admindirectorio')">
+                <tr>
+                    <th>
+                      Raz&oacute;n Social     
+                    </th>
+                    <td>
+                      <t:TextField t:value="compania.razonSocial"
+                        onBlur="javascript:this.value=this.value.toUpperCase();" />
+                    </td>
+                    <th>
+                    Certificado Aportaci&oacute;n Patrimonial
+                    </th>
+                    <td>
+                        <t:select t:id="certificado" model="literal: 1=Si, 0=No" t:value="compania.certificadoAportacionPatrimonial" blankOption="NEVER" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                      Nombre corto:
+                    </th>
+                    <td>
+                      <t:textField  t:value="compania.nombre" 
+                        onBlur="javascript:this.value=this.value.toUpperCase();"/>
+                    </td>
+                    <th>
+                        Capital Origen
+                    </th>
+                    <td>
+                        <t:select model="listaCapitalOSelectionModel" 
+                            encoder="listaCapitalOValueEncoder"
+                            blankOption="NEVER"
+                            t:value="compania.capitalOrigen" />
+                    </td>
+                </tr>
+                <tr>
+                    <th rowspan="3" valign="top">
+                        Ramos:
+                    </th>
+                    <td rowspan="3" valign="top" width="235">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:0;">
+                      <tr>
+                        <td>                        <ul class="listaCheck" style="margin:0; padding:0;">
+                            <li><t:checkbox t:id="autos" checked="${getChecked(1)}" /> <t:label for="autos"/></li>
+                            <li><t:checkbox t:id="vida" checked="${getChecked(2)}" /> <t:label for="vida"/></li>
+                            <li><t:checkbox t:id="aye" checked="${getChecked(3)}" /> <t:label for="aye"/></li>
+                            <li><t:checkbox t:id="danos" checked="${getChecked(4)}" /> <t:label for="danos" >Da&ntilde;os</t:label></li>
+                        </ul></td>
+                        <td>                        <ul class="listaCheck" style="margin:0; padding:0;">
+                          <li><t:checkbox t:id="reaseg" checked="${getChecked(5)}" /> <t:label for="reaseg" >Reaseguradora</t:label></li>
+                            <li><t:checkbox t:id="pension" checked="${getChecked(6)}" /> <t:label for="pension" >Pensi&oacute;n</t:label></li>
+                            <li><t:checkbox t:id="salud" checked="${getChecked(7)}" /> <t:label for="salud"/></li>
+                        </ul></td>
+                      </tr>
+                    </table>
+
+
+
+                  </td>
+                    <th>
+                        Grupo Financiero
+                    </th>
+                    <td>
+                        <t:textField t:id="grupof" t:value="compania.grupoFinaciero"
+                            onBlur="javascript:this.value=this.value.toUpperCase();" />
+                    </td>
+                </tr>            
+                <tr>
+                  <th>
+                      Tipo de Mercado
+                    </th>
+                    <td>
+                      <t:select model="listaTipoMSelectionModel" 
+                                encoder="listaTipoMValueEncoder"
+                                blankOption="NEVER"
+                                t:id="tipoM"
+                                t:value="compania.tipoMercado" />
+                    </td>
+                </tr>
+                <tr>
+                  <th>
+                        Canal de Ventas
+                    </th>
+                    <td>
+                      <t:select model="listaCanalVSelectionModel" 
+                                encoder="listaCanalVValueEncoder"
+                                blankOption="NEVER"
+                                t:id="canalV"
+                                t:value="compania.canalVenta" />
+                    </td>
+                </tr>
+                <tr>
+                  <th>
+                      Fecha fundaci&oacute;n:       
+                    </th>
+                    <td>
+                      <t:DateField t:value="compania.fechaFundacion"
+                        t:id="fechaf" />
+                    </td>
+                  <th>
+                        Capital Social
+                    </th>
+                    <td>
+                      <t:select model="listaCapitalSSelectionModel" 
+                                encoder="listaCapitalSValueEncoder"
+                                blankOption="NEVER"
+                                t:id="capitalS"
+                                t:value="compania.capitalSocial" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        P&aacute;gina web:      
+                    </th>
+                    <td>
+                        <t:textField t:value="compania.paginaWeb" />
+                    </td>
+                    <th>
+                        Estado:       
+                    </th>
+                    <td>
+                      <t:select t:id="estado" model="literal: A=Activo, I=Inactivo" t:value="compania.estado" blankOption="NEVER" />
+                    </td>
+                </tr>
+                <tr>
+                                        <th>
+                        Afiliada AMIS
+                    </th>
+                  <td>
+                        <t:select t:id="afiliada" t:value="compania.afiliadaAmis" model="literal: 1=Si, 0=No" blankOption="NEVER" />
+                    </td>
+                    <th>
+                      Logo: 
+                    </th>
+                    <td rowspan="3">
+                      <img src="${getLogoActual()}" alt="Banner" style="width:120px;height:100px;"/>
+                      <t:errors/>
+                      <input t:type="upload" t:id="logo" t:value="logo" />
+                  </td>
+                </tr>
+                <tr>
+                    <th>
+                        Acciones Inmobiliaria AMIS
+                    </th>
+                    <td>
+                        <t:select t:id="acciones" t:value="compania.accionesInmobiliariaAmis" model="literal: 1=Si, 0=No" blankOption="NEVER" />
+                    </td>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr>
+                    <th>&nbsp;</th>
+                    <td>					<t:submit 
+                        t:id="modificaCompania"
+                        class="btnEditar"
+                        value="Modificar Compa&ntilde;ia"
+                        alt="Modifica" />
+                    </td>
+                    <th>&nbsp;
+                    
+                    </th>
+                </tr>
+
+              <p:else>
+                    <tr>
+                        <th>
+                          Raz&oacute;n Social     
+                        </th>
+                        <td>
+                          ${compania.razonSocial}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                          Nombre corto:
+                        </th>
+                        <td>
+                          ${compania.nombre}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Ramos:
+                        </th>
+                        <td>
+                            <p t:type="Loop" t:source="compania.listaRamo" t:value="ramo">
+                                ${ramo.nombre}
+                            </p>
+                        </td>
+                    </tr>            
+                    <tr>
+                        <th>
+                          Logo: 
+                        </th>
+                        <td>
+                            ${compania.rutaLogo}                        
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Fecha fundaci&oacute;n:       
+                        </th>
+                        <td>
+                            ${compania.fechaFundacion}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            P&aacute;gina web:      
+                        </th>
+                        <td>
+                            ${compania.paginaWeb}
+                        </td>                     
+                    </tr>
+                    <tr>
+                        <th>
+                            Afiliada AMIS
+                        </th>
+                        <td>
+                            ${compania.afiliadaAmis}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Acciones Inmobiliaria AMIS
+                        </th>
+                        <td>
+                            ${compania.accionesInmobiliariaAmis}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Certificado Aportaci&oacute;n Patrimonial
+                        </th>
+                        <td>
+                            ${compania.certificadoAportacionPatrimonial}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Capital Origen
+                        </th>
+                        <td>
+                            ${compania.capitalOrigen.nombre}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Grupo Financiero
+                        </th>
+                        <td>
+                            ${compania.grupoFinaciero}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Tipo de Mercado
+                        </th>
+                        <td>                          
+                            ${compania.tipoMercado.nombre}
+                        </td>
+                    </tr>
+                  <tr>
+                    <th>
+                        Canal de Ventas
+                    </th>
+                    <td>
+                        ${compania.canalVenta.nombre}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                        Capital Social
+                    </th>
+                    <td>
+                        ${compania.capitalSocial.nombre}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                        Estado:       
+                    </th>
+                    <td>
+                        ${compania.estado}
+                    </td>
+                  </tr>
+                    <tr>
+                        <td colspan="4" align="right">
+                            <br/>
+                            <!--a href="#" onClick="javascript:Tapestry.waitForPage(event);document.forms[0].onsubmit();" class="button"><span>Siguiente</span></a-->
+                            <t:submit 
+                            t:id="regresa"
+                            class="boton"
+                            value="Regresar"
+                            alt="Regresar" 
+                            border="0"/>
+                        </td>            
+                    </tr>
+              </p:else>
+            </t:if>            
+        </table>
+            </t:form>      
+  </div>
+  <div id="wrapperTablasO">
+    <div id="baseOficina">
+    <div><input id="regresaO" class="btnRegresarPopUp" type="button" value="Regresar" /></div>
+    <table id="tablaOficina">
+        <thead>
+            <tr>                                            
+                <th>Número Oficina</th>
+                <th>Descripci&oacute;n</th>
+                <th>Direcci&oacute;n</th>
+                <th>Tel&eacute;fono</th>
+            </tr>
+        </thead>
+        <tbody>                               
+        <t:if test="listaOficinas">                       
+            <tr t:type="Loop" t:source="listaOficinas" t:value="oficina" >                           
+                <td>${oficina.get('id_oficina')}</td>                            
+                <td><t:actionlink t:id="actualizaOficina" class="linkTabla" context="oficina.get('id_oficina')">${oficina.get('descripcion')}</t:actionlink></td>
+                <td>${oficina.get('direccion')}</td>
+                <td>${oficina.get('telefono')}</td>
+            </tr>
+            <p:else>
+                <tr>
+                    <td>No hay ning&uacute;n resultado</td>
+                </tr>
+            </p:else>
+        </t:if>
+        <t:if test="getRol('admindirectorio')">
+            <tr>
+                <td colspan="4" align="right">
+                    <t:form t:id="formOficinas">
+                    <br/>
+                        <!--a href="#" onClick="javascript:Tapestry.waitForPage(event);document.forms[0].onsubmit();" class="button"><span>Siguiente</span></a-->
+                    <t:submit 
+                        t:id="agregaOficina"
+                        class="btnAgregar"
+                        value="Agregar"
+                        alt="Agregar Oficina" 
+                        border="0"/>
+                    </t:form>                          
+                </td>
+            </tr>
+        </t:if>                
+        </tbody>                                          
+    </table>
+    </div>
+  </div>
+  <div id="wrapperTablasH">
+    <div id="baseHistorico">
+        <div>
+            <p class="titleForm shadow">LISTA DE HIST&Oacute;RICO</p>
+        </div>
+        <div><input id="regresaH" class="btnRegresarPopUp" type="button" value="Regresar" /></div>
+        <table id="tablaHistorico">
+            <thead>
+                <tr>                                            
+                    <th>Fecha Modificaci&oacute;n</th>
+                    <th>Compa&ntilde;ia</th>                                       
+                </tr>
+            </thead>
+            <tbody>                               
+            <t:if test="listaMapasHistorico">                       
+                <tr t:type="Loop" t:source="listaMapasHistorico" t:value="mapaHistorico">                           
+                    <td><t:actionlink t:id="detalleHistorico" class="linkTabla" context="mapaHistorico.get('id_historial')">${mapaHistorico.get('fecha_mod')}</t:actionlink></td>
+                    <td>${getNombreCia(mapaHistorico.get('id_cia'))}</td>                           
+                </tr>
+                <p:else>
+                    <tr>
+                        <td>No hay ning&uacute;n resultado</td>
+                    </tr>
+                </p:else>
+            </t:if>
+            </tbody>                                          
+        </table>
+    </div>
+    </div>
+            <script>
+                jQuery(document).ready(function() {
+                  
+                  jQuery("#wrapperTablasH").hide();
+                  jQuery("#wrapperTablasO").hide();
+                  jQuery("#baseHistorico").hide();
+                  jQuery("#baseOficina").hide();
+                  jQuery(".btnHistorico").click(function(){
+                    jQuery("#wrapperTablasH").show();
+                    jQuery("#baseHistorico").show();
+                  });
+                  jQuery(".btnOficina").click(function(){
+                    jQuery("#wrapperTablasO").show();
+                    jQuery("#baseOficina").show();
+                  });
+                  jQuery("#regresaH").click(function(){
+                    jQuery("#wrapperTablasH").hide();
+                    jQuery("#baseHistorico").hide();
+                  });
+                  jQuery("#regresaO").click(function(){
+                    jQuery("#wrapperTablasO").hide();
+                    jQuery("#baseOficina").hide();
+                  });
+                });
+            </script>
+            <style>
+              #baseHistorico, #baseOficina{
+                background: #585858;        
+                position: absolute;
+                width: 95%;
+                top: 200px;
+                right: 30px;
+              }
+            </style>
+</span>

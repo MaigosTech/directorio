@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<span t:type="layout" title="PT" 
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+	xmlns:p="tapestry:parameter">
+		<t:if test="mensaje">
+			<font color="red"><t:outputraw value="mensaje"/></font>
+		</t:if>
+				<t:grid source="sesiones" inPlace="true" rowsPerPage="10" id="tablaInterna" row="sesion"
+					lean="true"
+					reorder="usuario, hora, ip"
+					excludeed="id_emision"
+					>
+					<p:empty><font color="red">No se encontraron sesiones</font></p:empty>
+					<p:usuarioCell>
+						${sesion.usuario}&nbsp;&nbsp;(<t:actionLink t:id="expirar" context="sesion.usuario">expirar</t:actionLink>)
+					</p:usuarioCell>
+					<p:horaCell>${formateaFechaConHora(sesion.hora)}</p:horaCell>
+				</t:grid>
+</span>
